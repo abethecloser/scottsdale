@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scottsdale Sales Training — Design 1: Fresh Lime &amp; Cream</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sales training, coaching &amp; team workshops in Scottsdale, AZ. Close more deals, shorten your sales cycle, and build a high-performing team.">
+<meta name="theme-color" content="#2E3A23">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN 1 — FRESH LIME & CREAM  (Terra-style)
+   ============================================================ */
+:root{
+  --paper:#F7F6EF; --cream:#EFEFE4; --card:#FFFFFF;
+  --ink:#1B1F16; --ink-soft:#414737; --mute:#7C8270; --line:rgba(27,31,22,.12);
+  --lime:#C2F03D; --lime-deep:#aee02f; --lime-soft:#EBF6C9;
+  --green:#2E3A23; --green-2:#3C4B2D;
+  --display:"Space Grotesk",-apple-system,sans-serif; --sans:"Inter",-apple-system,sans-serif;
+  --ease:cubic-bezier(.16,.84,.3,1); --r:16px; --r-lg:24px; --r-xl:30px; --pill:100px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.04;letter-spacing:-.02em;color:var(--ink)}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:20px}
+.eyebrow{display:inline-flex;align-items:center;gap:.6em;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--green-2)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--lime-deep);border-radius:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-weight:600;font-size:.95rem;padding:.9em 1.6em;border-radius:var(--pill);transition:transform .3s var(--ease),background .3s,color .3s}
+.btn svg{width:1.05em;height:1.05em;transition:transform .3s var(--ease)}
+.btn--lime{background:var(--lime);color:var(--ink)}
+.btn--lime:hover{background:var(--lime-deep);transform:translateY(-2px)}
+.btn--lime:hover svg{transform:translateX(3px)}
+.btn--dark{background:var(--green);color:var(--paper)}
+.btn--dark:hover{background:var(--green-2);transform:translateY(-2px)}
+.btn--out{border:1.5px solid var(--line);color:var(--ink);background:var(--paper)}
+.btn--out:hover{border-color:var(--ink)}
+/* circular arrow button (Terra signature) */
+.arrow{width:46px;height:46px;border-radius:50%;background:var(--lime);color:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.3s var(--ease)}
+.arrow svg{width:20px;height:20px;transition:transform .3s var(--ease)}
+
+/* Header */
+.hdr{position:sticky;top:0;z-index:60;background:rgba(247,246,239,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:70px}
+.brand{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:700;font-size:1.12rem;letter-spacing:-.02em}
+.brand .mark{width:36px;height:36px;border-radius:50%;background:var(--green);color:var(--lime);display:flex;align-items:center;justify-content:center;font-weight:700}
+.brand small{display:block;font-family:var(--sans);font-size:.48rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green-2);font-weight:600;margin-top:1px}
+.nav__links{display:none}
+.nav__right{display:flex;align-items:center;gap:.7rem}
+.burger{width:44px;height:44px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s var(--ease)}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{position:fixed;inset:70px 0 auto 0;background:var(--paper);border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .4s var(--ease);z-index:55;padding:1rem 20px 1.6rem}
+.drawer.open{transform:translateY(0)}
+.drawer a{display:block;padding:.85rem 0;font-size:1.1rem;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+.drawer .btn{margin-top:1rem;width:100%}
+
+/* Hero */
+.hero{padding:14px 0 0}
+.hero__card{position:relative;border-radius:var(--r-xl);overflow:hidden;padding:30px 22px 26px;min-height:430px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;isolation:isolate}
+.hero__card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero__card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(27,31,22,.34) 0%,rgba(27,31,22,.74) 100%)}
+.hero h1{color:#fff;font-size:clamp(2.2rem,9vw,3.3rem);line-height:1.02}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hero__sub{color:rgba(255,255,255,.86);font-size:1rem;margin-top:.9rem;max-width:40ch}
+/* search/selector card */
+.finder{background:var(--paper);border-radius:var(--r-lg);padding:1rem;margin-top:1.4rem;box-shadow:0 20px 40px rgba(27,31,22,.2)}
+.finder__tabs{display:flex;gap:.4rem;margin-bottom:.8rem;flex-wrap:wrap}
+.finder__tabs button{font-size:.82rem;font-weight:600;padding:.5em 1em;border-radius:var(--pill);background:var(--cream);color:var(--ink-soft)}
+.finder__tabs button.on{background:var(--green);color:#fff}
+.finder__field{display:flex;align-items:center;gap:.6rem;border:1px solid var(--line);border-radius:var(--pill);padding:.75rem 1rem;color:var(--mute);font-size:.92rem;margin-bottom:.7rem}
+.finder__field svg{width:18px;height:18px;flex-shrink:0}
+.finder .btn{width:100%}
+.finder__meta{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:.8rem;font-size:.8rem;color:var(--mute)}
+.finder__meta a{background:var(--cream);padding:.35em .8em;border-radius:var(--pill);color:var(--ink-soft);font-weight:500}
+
+/* Stat band */
+.statband{background:var(--lime-soft);border-radius:var(--r-lg);padding:1.6rem;margin-top:1.4rem;display:grid;gap:1.4rem}
+.statband .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.statband b{font-family:var(--display);font-size:1.9rem;font-weight:600;display:block;line-height:1;color:var(--ink)}
+.statband span{font-size:.84rem;color:var(--ink-soft)}
+.statband__cta{font-size:.95rem;color:var(--ink-soft)}
+.statband__cta a{font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+/* Sections */
+.section{padding:54px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.8rem}
+.sec-head h2{font-size:clamp(1.8rem,7vw,2.5rem)}
+.sec-head .eyebrow{margin-bottom:.7rem}
+.sec-head__link{display:inline-flex;align-items:center;gap:.4em;font-weight:600;font-size:.9rem;color:var(--green-2);white-space:nowrap}
+.sec-head__link svg{width:1em;height:1em}
+
+/* Popular: featured + grid */
+.popular{display:grid;gap:1rem}
+.pcard{position:relative;border-radius:var(--r-lg);overflow:hidden;color:#fff;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;min-height:200px}
+.pcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s var(--ease)}
+.pcard::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(27,31,22,.05) 30%,rgba(27,31,22,.8) 100%)}
+.pcard:hover img{transform:scale(1.05)}
+.pcard--big{min-height:320px}
+.pcard__loc{display:flex;align-items:center;gap:.35em;font-size:.8rem;color:rgba(255,255,255,.8);margin-bottom:.2rem}
+.pcard__loc svg{width:14px;height:14px}
+.pcard h3{color:#fff;font-size:1.2rem}
+.pcard--big h3{font-size:1.5rem}
+.pcard__tag{font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--lime);margin-top:.4rem}
+.pcard .arrow{position:absolute;right:1.1rem;bottom:1.1rem}
+.pcard:hover .arrow{transform:rotate(-8deg)}
+
+/* Suggestion pills */
+.suggest{display:grid;gap:.8rem;margin-top:.4rem}
+.spill{display:flex;align-items:center;justify-content:space-between;gap:1rem;border:1px solid var(--line);border-radius:var(--pill);padding:.7rem .8rem .7rem 1.3rem;font-weight:600;font-size:.95rem;transition:.3s var(--ease)}
+.spill .dot{width:34px;height:34px;border-radius:50%;background:var(--cream);color:var(--ink);display:flex;align-items:center;justify-content:center}
+.spill .dot svg{width:16px;height:16px}
+.spill--lime{background:var(--lime);border-color:var(--lime)}
+.spill--lime .dot{background:var(--ink);color:var(--lime)}
+.spill:hover{transform:translateY(-2px)}
+
+/* Types grid */
+.types{display:grid;gap:1rem}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:.7rem;transition:.3s var(--ease)}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(27,31,22,.1)}
+.tcard__img{border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;margin-bottom:.9rem}
+.tcard__img img{width:100%;height:100%;object-fit:cover}
+.tcard h3{font-size:1.1rem;font-weight:600;padding:0 .4rem}
+.tcard__meta{display:flex;gap:.9rem;color:var(--mute);font-size:.78rem;padding:0 .4rem;margin-top:.4rem}
+.tcard__foot{display:flex;align-items:center;justify-content:space-between;padding:.6rem .4rem .3rem}
+.tcard__foot b{font-family:var(--display);font-size:1rem}
+.tcard__foot .v{display:inline-flex;align-items:center;gap:.3em;background:var(--lime);color:var(--ink);font-weight:600;font-size:.82rem;padding:.4em .9em;border-radius:var(--pill)}
+.tcard__foot .v svg{width:.9em;height:.9em}
+
+/* Feature/reviews reuse */
+.reviews{display:grid;gap:1rem;margin-top:.4rem}
+.review{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.6rem}
+.review .stars{display:flex;gap:3px;color:var(--lime-deep);margin-bottom:.8rem}
+.review .stars svg{width:16px;height:16px}
+.review p{font-size:1.04rem;line-height:1.5;color:var(--ink-soft)}
+.review .who{display:flex;align-items:center;gap:.7rem;margin-top:1.2rem}
+.review .who img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.review b{display:block;font-size:.9rem}
+.review small{color:var(--mute);font-size:.82rem}
+
+/* Footer (dark green) */
+.foot{background:var(--green);color:rgba(247,246,239,.7);padding:54px 0 26px;margin-top:40px}
+.foot .brand{color:var(--paper);margin-bottom:1rem}
+.foot .brand .mark{background:var(--lime);color:var(--green)}
+.foot__top{display:grid;gap:2rem}
+.foot p{font-size:.92rem;max-width:34ch}
+.foot h4{color:var(--paper);font-family:var(--sans);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1rem}
+.foot li{margin-bottom:.6rem;font-size:.9rem}
+.foot a:hover{color:var(--lime)}
+.social{display:flex;gap:.6rem;margin-top:1.2rem}
+.social a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(247,246,239,.2);display:flex;align-items:center;justify-content:center}
+.social a:hover{background:var(--lime);color:var(--green);border-color:var(--lime)}
+.social svg{width:17px;height:17px}
+.foot__contact{border-top:1px solid rgba(247,246,239,.16);margin-top:2.4rem;padding-top:2rem;display:grid;gap:1.6rem}
+.foot__contact h3{color:var(--paper);font-size:1.4rem}
+.foot__bottom{margin-top:2rem;padding-top:1.4rem;border-top:1px solid rgba(247,246,239,.16);font-size:.78rem;color:rgba(247,246,239,.5);display:flex;flex-wrap:wrap;gap:.6rem;justify-content:space-between}
+
+@media(min-width:780px){
+  .wrap{padding-inline:40px}
+  .nav{height:80px}
+  .nav__links{display:flex;gap:1.8rem}
+  .nav__links a{font-size:.92rem;color:var(--ink-soft);font-weight:500}
+  .nav__links a:hover{color:var(--ink)}
+  .burger,.drawer{display:none}
+  .hero{padding:20px 0 0}
+  .hero__card{padding:48px 44px 40px;min-height:520px}
+  .finder{max-width:760px}
+  .finder__tabs{margin-bottom:0}
+  .finder__row{display:grid;grid-template-columns:1fr 1.4fr auto;gap:.7rem;align-items:center;margin-top:.9rem}
+  .finder__field{margin-bottom:0}
+  .finder .btn{width:auto;padding-inline:2rem}
+  .statband{grid-template-columns:repeat(3,1fr) 1.3fr;align-items:center;padding:2rem 2.4rem}
+  .statband .grid{display:contents}
+  .statband b{font-size:2.2rem}
+  .section{padding:80px 0}
+  .popular{grid-template-columns:1.4fr 1fr;grid-auto-rows:1fr}
+  .pcard--big{grid-row:span 2}
+  .suggest{grid-template-columns:repeat(3,1fr)}
+  .types{grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  .reviews{grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .foot__top{grid-template-columns:1.6fr 1fr 1fr 1fr}
+  .foot__contact{grid-template-columns:1fr 1fr 1fr;align-items:start}
+}
+</style>
+</head>
+<body>
+
+<!-- DESIGN SWITCHER (preview only — remove before launch) -->
+<div style="background:#2E3A23;color:#F7F6EF;text-align:center;font-size:.78rem;padding:.5rem;letter-spacing:.04em;font-family:Inter,sans-serif">
+  Design 1 of 3 · <b>Fresh Lime &amp; Cream</b> &nbsp;|&nbsp;
+  <a href="index-design-2.html" style="color:#C2F03D">Design 2</a> &nbsp;·&nbsp;
+  <a href="index-design-3.html" style="color:#C2F03D">Design 3</a> &nbsp;·&nbsp;
+  <a href="index.html" style="color:#C2F03D">Compare all</a>
+</div>
+
+<header class="hdr">
+  <nav class="wrap nav">
+    <a class="brand" href="#"><span class="mark">S</span><span>Scottsdale<small>Sales Training</small></span></a>
+    <div class="nav__links">
+      <a href="#programs">Programs</a>
+      <a href="#explore">Formats</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav__right">
+      <a class="btn btn--out" href="#contact" style="padding:.6em 1.2em;font-size:.86rem">Sign In</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="drawer" id="drawer">
+  <a href="#programs">Programs</a>
+  <a href="#explore">Formats</a>
+  <a href="#results">Results</a>
+  <a href="#contact">Contact</a>
+  <a class="btn btn--lime" href="#contact">Book a Discovery Call</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__card">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80" alt="Sales team at work">
+      <span class="eyebrow" style="color:var(--lime)">Sales Training · Scottsdale, AZ</span>
+      <h1 style="margin-top:1rem">Let's build a team that <em>loves to close.</em></h1>
+      <p class="hero__sub">Practical sales training and coaching that shortens your sales cycle, lifts win rates, and gives every rep the confidence to sell.</p>
+
+      <div class="finder">
+        <div class="finder__tabs">
+          <button class="on">Team Training</button>
+          <button>1-on-1 Coaching</button>
+          <button>Leadership</button>
+        </div>
+        <div class="finder__row">
+          <div class="finder__field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>Team size</div>
+          <div class="finder__field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>What does your team need to improve?</div>
+          <a class="btn btn--lime" href="#contact">Get a Plan</a>
+        </div>
+        <div class="finder__meta">Most requested: <a href="#programs">Objection handling</a> <a href="#programs">Cold outreach</a> <a href="#programs">Closing</a></div>
+      </div>
+    </div>
+
+    <!-- Stat band -->
+    <div class="statband">
+      <div class="grid">
+        <div><b>2,500+</b><span>Reps Trained</span></div>
+        <div><b>38%</b><span>Avg. Win-Rate Lift</span></div>
+      </div>
+      <div class="grid">
+        <div><b>15+</b><span>Years Experience</span></div>
+        <div class="statband__cta">Give your team the skills to close more this quarter. <a href="#contact">Book a discovery call →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR PROGRAMS -->
+<section class="section" id="programs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Programs</span><h2>Our most popular programs</h2></div>
+      <a class="sec-head__link" href="#explore">See all <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="popular">
+      <a class="pcard pcard--big" href="#contact">
+        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1000&q=80" alt="Sales team workshop">
+        <div class="pcard__loc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>On-site or virtual</div>
+        <h3>Sales Team Workshops</h3>
+        <span class="pcard__tag">Most booked program</span>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="pcard" href="#contact">
+        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="1-on-1 coaching">
+        <div class="pcard__loc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>Reps &amp; founders</div>
+        <h3>1-on-1 Coaching</h3>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="pcard" href="#contact">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Leadership training">
+        <div class="pcard__loc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>For managers</div>
+        <h3>Sales Leadership</h3>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+
+    <!-- Suggestion pills -->
+    <h3 style="margin:2.4rem 0 1rem;font-size:1.3rem">Not sure where to start?</h3>
+    <div class="suggest">
+      <a class="spill" href="#contact">Free team assessment <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="spill" href="#contact">New-hire ramp program <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="spill spill--lime" href="#contact">Book a discovery call <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE FORMATS -->
+<section class="section" id="explore" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Explore training formats</h2></div></div>
+    <div class="types">
+      <div class="tcard">
+        <div class="tcard__img"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" alt="Half-day workshop"></div>
+        <h3>Half-Day Workshop</h3>
+        <div class="tcard__meta"><span>4 hrs</span><span>Up to 20</span></div>
+        <div class="tcard__foot"><b>On-site</b><span class="v">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard__img"><img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&q=80" alt="Virtual coaching"></div>
+        <h3>Virtual Coaching</h3>
+        <div class="tcard__meta"><span>Weekly</span><span>1-on-1</span></div>
+        <div class="tcard__foot"><b>Remote</b><span class="v">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard__img"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="Quarterly program"></div>
+        <h3>Quarter Program</h3>
+        <div class="tcard__meta"><span>12 weeks</span><span>Full team</span></div>
+        <div class="tcard__foot"><b>Hybrid</b><span class="v">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+      <div class="tcard">
+        <div class="tcard__img"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80" alt="Keynote"></div>
+        <h3>Keynote Talk</h3>
+        <div class="tcard__meta"><span>60–90 min</span><span>Any size</span></div>
+        <div class="tcard__foot"><b>Events</b><span class="v">View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="results" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Results</span><h2>Teams that train with us, win more</h2></div></div>
+    <div class="reviews">
+      <div class="review">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div>
+        <p>"Our close rate jumped 30% in one quarter. The role-play sessions changed how my reps handle objections."</p>
+        <div class="who"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80" alt=""><div><b>Marcus T.</b><small>VP Sales, SaaS company</small></div></div>
+      </div>
+      <div class="review">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div>
+        <p>"Best sales investment we've made. Practical, energizing, and the follow-up coaching kept it from fading."</p>
+        <div class="who"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=120&q=80" alt=""><div><b>Dana R.</b><small>Founder, Agency</small></div></div>
+      </div>
+      <div class="review">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div>
+        <p>"My new hires used to take 6 months to ramp. After this program, they're hitting quota in 8 weeks."</p>
+        <div class="who"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80" alt=""><div><b>Eric L.</b><small>Sales Director</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <a class="brand" href="#"><span class="mark">S</span><span style="color:var(--paper)">Scottsdale<small>Sales Training</small></span></a>
+        <p>Sales training, coaching and workshops that turn good reps into great closers. Based in Scottsdale, serving teams everywhere.</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM3 8.5h3.8V21H3zM9.5 8.5h3.6v1.7h.05c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.4 2.4 4.4 5.6V21h-3.8v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9.5z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Programs</h4><ul><li><a href="#programs">Team Workshops</a></li><li><a href="#programs">1-on-1 Coaching</a></li><li><a href="#programs">Leadership Training</a></li><li><a href="#programs">Keynotes</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#results">Results</a></li><li><a href="#explore">Formats</a></li><li><a href="#">FAQ</a></li></ul></div>
+      <div><h4>Formats</h4><ul><li><a href="#explore">On-site</a></li><li><a href="#explore">Virtual</a></li><li><a href="#explore">Hybrid</a></li><li><a href="#explore">Events</a></li></ul></div>
+    </div>
+
+    <div class="foot__contact">
+      <div><h3>Get in touch</h3><p style="margin-top:.6rem">Questions or ready to start? We're here to help your team win more.</p></div>
+      <div><h4>Address</h4><p>Scottsdale, Arizona</p><h4 style="margin-top:1.2rem">Hours</h4><p>Mon–Fri · 8–5</p></div>
+      <div><h4>Phone</h4><p><a href="tel:+14805551234">(480) 555-1234</a></p><h4 style="margin-top:1.2rem">Email</h4><p><a href="mailto:hello@scottsdalesalestraining.com">hello@scottsdalesalestraining.com</a></p></div>
+    </div>
+
+    <div class="foot__bottom"><span>© <span id="yr">2026</span> Scottsdale Sales Training. All rights reserved.</span><span>Privacy · Terms</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('burger'),d=document.getElementById('drawer');
+  if(b&&d){b.addEventListener('click',function(){var o=d.classList.toggle('open');b.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+    d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){d.classList.remove('open');b.classList.remove('open');document.body.style.overflow='';});});}
+  var t=document.querySelectorAll('.finder__tabs button');
+  t.forEach(function(x){x.addEventListener('click',function(){t.forEach(function(y){y.classList.remove('on');});x.classList.add('on');});});
+  var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();
+})();
+</script>
+</body></html>
