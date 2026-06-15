@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scottsdale Sales Training | Atelier</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Expert sales coaching and custom training programs in Scottsdale, AZ. Real, measurable results.">
+<meta name="theme-color" content="#E8E2D4">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{
+  colors:{page:'#E8E2D4',herobg:'#CFC8B8',card:'#FFFFFF',ink:'#1B1813',inksoft:'#5A5346',mute:'#8C8472',
+    gold:'#B0801F',goldsoft:'#C9A24A',line:'rgba(27,24,19,.12)'},
+  fontFamily:{sans:['Inter','sans-serif']},
+  borderRadius:{'2xl':'1rem','3xl':'1.5rem','hero':'28px'}
+}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;background:#E8E2D4}
+  .rise{opacity:0;transform:translateY(24px);animation:rise 1.2s cubic-bezier(.22,1,.36,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .fade{opacity:0;animation:fade 1.4s ease-out .2s forwards}
+  @keyframes fade{to{opacity:1}}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+  .zoomimg{transition:transform .9s cubic-bezier(.16,.84,.3,1)}.group:hover .zoomimg{transform:scale(1.05)}
+  @media(prefers-reduced-motion:reduce){.rise,.fade,.reveal{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}}
+</style>
+</head>
+<body class="text-ink">
+<div class="max-w-[1400px] mx-auto px-3 py-3 sm:px-5 sm:py-5">
+
+  <!-- NAVBAR -->
+  <header class="bg-card rounded-2xl shadow-[0_8px_30px_rgba(27,24,19,.08)] px-5 py-4 flex items-center justify-between gap-4 relative z-30">
+    <a href="#" class="flex items-center gap-2.5 shrink-0">
+      <svg class="w-7 h-7" viewBox="0 0 48 48" fill="none"><path d="M24 3 41 10.5V25c0 11-8.4 16.6-17 19.8C15.4 41.6 7 36 7 25V10.5L24 3Z" stroke="#1B1813" stroke-width="2"/><rect x="14" y="24" width="4.4" height="12" rx="1" fill="#B0801F"/><rect x="21.8" y="18" width="4.4" height="18" rx="1" fill="#B0801F"/><rect x="29.6" y="27" width="4.4" height="9" rx="1" fill="#B0801F"/><path d="M13 30 L20 22 L25 26 L34 15" stroke="#B0801F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="font-semibold text-[20px] sm:text-[22px] tracking-tight">Scottsdale</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-9 text-[13px] font-bold uppercase tracking-[0.12em] text-inksoft">
+      <a href="#services" class="hover:text-ink">Programs</a>
+      <a href="#work" class="hover:text-ink">Results</a>
+      <a href="#coaches" class="hover:text-ink">Coaches</a>
+      <a href="#contact" class="hover:text-ink">About</a>
+    </nav>
+    <a href="#contact" class="hidden sm:inline-flex bg-gold text-white text-[13px] font-bold uppercase tracking-[0.12em] rounded-xl px-6 py-3.5 hover:bg-ink transition">Book a call</a>
+    <button id="burger" class="lg:hidden w-9 h-9 grid place-items-center" aria-label="Menu"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+  </header>
+  <div id="menu" class="lg:hidden hidden bg-card rounded-2xl shadow-lg mt-2 p-4">
+    <a href="#services" class="block py-2.5 text-[15px] border-b border-line">Programs</a>
+    <a href="#work" class="block py-2.5 text-[15px] border-b border-line">Results</a>
+    <a href="#coaches" class="block py-2.5 text-[15px] border-b border-line">Coaches</a>
+    <a href="#contact" class="block py-2.5 text-[15px]">About</a>
+    <a href="#contact" class="mt-3 block text-center bg-gold text-white text-[13px] font-bold uppercase tracking-[0.12em] rounded-xl px-6 py-3.5">Book a call</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative mt-3 sm:mt-5 rounded-hero overflow-hidden bg-herobg px-6 pt-16 pb-20 lg:px-20 lg:pt-28 lg:pb-32 min-h-[560px] flex items-center">
+    <img class="fade absolute inset-0 w-full h-full object-cover" style="object-position:75% 30%"
+         src="https://cdn.sceneai.art/Hero%20section%20image/c22595cc-d724-4c03-b0e4-3dd0fdd22ab5.jpeg"
+         onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1600&q=80'" alt="Sales coaching session">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/30 to-transparent md:from-black/50 md:via-black/15"></div>
+    <div class="relative z-10 max-w-xl text-white">
+      <h1 class="rise text-[32px] sm:text-[44px] lg:text-[56px] font-semibold tracking-tight leading-[1.08]">Expert coaching.<br>Real, measurable results.</h1>
+      <p class="rise mt-5 max-w-md text-[17px] leading-relaxed text-white/85" style="animation-delay:.1s">Practical sales training built around your real deals, scripts and process, so the skills land in real conversations and stick.</p>
+      <div class="rise mt-8 flex flex-wrap gap-3" style="animation-delay:.2s">
+        <a href="#contact" class="bg-gold text-white text-[13px] font-bold uppercase tracking-[0.12em] rounded-xl px-7 py-4 hover:bg-ink transition">Book a call</a>
+        <a href="#services" class="border border-white/40 text-white text-[13px] font-bold uppercase tracking-[0.12em] rounded-xl px-7 py-4 hover:bg-white hover:text-ink transition">Our programs</a>
+      </div>
+      <div class="rise mt-9 flex items-center gap-4" style="animation-delay:.3s">
+        <div class="flex -space-x-3">
+          <img class="w-10 h-10 rounded-full object-cover ring-2 ring-herobg" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80" alt="">
+          <img class="w-10 h-10 rounded-full object-cover ring-2 ring-herobg" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80" alt="">
+          <img class="w-10 h-10 rounded-full object-cover ring-2 ring-herobg" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="">
+          <span class="w-10 h-10 rounded-full bg-ink text-white text-[11px] font-bold grid place-items-center ring-2 ring-herobg">2.5K+</span>
+        </div>
+        <span class="text-[13px] text-white/80">2,500+ reps already trained</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <section class="px-2 sm:px-6 py-10 sm:py-14 reveal">
+    <p class="text-center text-[12px] uppercase tracking-[0.2em] text-mute mb-6">Trusted by revenue teams across Arizona and beyond</p>
+    <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4 opacity-70 text-ink">
+      <span class="text-[16px] font-bold">Northwind</span>
+      <span class="text-[16px] font-semibold">Helix</span>
+      <span class="text-[16px] font-medium">Vantage</span>
+      <span class="text-[16px] font-medium">Meridian</span>
+      <span class="text-[16px] font-semibold">Brightline</span>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="reveal mt-2 sm:mt-3 bg-card rounded-hero px-6 sm:px-12 py-14 sm:py-20">
+    <div class="max-w-2xl mb-10 sm:mb-14">
+      <span class="text-[12px] font-bold uppercase tracking-[0.16em] text-gold">What we do</span>
+      <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight mt-3">Programs built around your team</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <div class="rounded-3xl bg-page p-6 hover:shadow-lg transition"><div class="w-11 h-11 rounded-xl bg-ink text-goldsoft grid place-items-center mb-4"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div><h3 class="text-lg font-semibold">Team Workshops</h3><p class="mt-2 text-[14px] text-inksoft">Role-play driven group sessions, on-site or virtual.</p></div>
+      <div class="rounded-3xl bg-page p-6 hover:shadow-lg transition"><div class="w-11 h-11 rounded-xl bg-ink text-goldsoft grid place-items-center mb-4"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3 class="text-lg font-semibold">1-on-1 Coaching</h3><p class="mt-2 text-[14px] text-inksoft">Private weekly coaching for reps and leaders.</p></div>
+      <div class="rounded-3xl bg-page p-6 hover:shadow-lg transition"><div class="w-11 h-11 rounded-xl bg-ink text-goldsoft grid place-items-center mb-4"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></div><h3 class="text-lg font-semibold">Sales Leadership</h3><p class="mt-2 text-[14px] text-inksoft">Coach deals, forecast, build a winning culture.</p></div>
+      <div class="rounded-3xl bg-page p-6 hover:shadow-lg transition"><div class="w-11 h-11 rounded-xl bg-ink text-goldsoft grid place-items-center mb-4"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/></svg></div><h3 class="text-lg font-semibold">Prospecting</h3><p class="mt-2 text-[14px] text-inksoft">Fill the pipeline and book more meetings.</p></div>
+      <div class="rounded-3xl bg-page p-6 hover:shadow-lg transition"><div class="w-11 h-11 rounded-xl bg-ink text-goldsoft grid place-items-center mb-4"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3 class="text-lg font-semibold">Negotiation &amp; Closing</h3><p class="mt-2 text-[14px] text-inksoft">Close without discounting away margin.</p></div>
+      <div class="rounded-3xl bg-page p-6 hover:shadow-lg transition"><div class="w-11 h-11 rounded-xl bg-ink text-goldsoft grid place-items-center mb-4"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div><h3 class="text-lg font-semibold">Keynotes &amp; Events</h3><p class="mt-2 text-[14px] text-inksoft">Re-light the fire at kickoffs and conferences.</p></div>
+    </div>
+  </section>
+
+  <!-- STATS / CASE STUDY (dark card) -->
+  <section id="work" class="reveal mt-2 sm:mt-3 grid lg:grid-cols-2 gap-2 sm:gap-3">
+    <div class="bg-ink text-white rounded-hero p-8 sm:p-12 flex flex-col justify-center">
+      <span class="text-[12px] font-bold uppercase tracking-[0.16em] text-goldsoft">The results</span>
+      <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mt-3">Numbers our clients actually see</h2>
+      <div class="grid grid-cols-2 gap-y-8 gap-x-6 mt-8">
+        <div><div class="text-4xl sm:text-5xl font-semibold text-goldsoft">38%</div><div class="mt-1.5 text-[13px] text-white/55">Avg. win-rate lift</div></div>
+        <div><div class="text-4xl sm:text-5xl font-semibold text-goldsoft">2,500+</div><div class="mt-1.5 text-[13px] text-white/55">Reps trained</div></div>
+        <div><div class="text-4xl sm:text-5xl font-semibold text-goldsoft">8 wks</div><div class="mt-1.5 text-[13px] text-white/55">New-hire ramp</div></div>
+        <div><div class="text-4xl sm:text-5xl font-semibold text-goldsoft">4.9/5</div><div class="mt-1.5 text-[13px] text-white/55">Client rating</div></div>
+      </div>
+    </div>
+    <div class="relative rounded-hero overflow-hidden min-h-[320px] group">
+      <img class="zoomimg absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1000&q=80" alt="Workshop in session">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+      <div class="absolute left-7 bottom-7 right-7 text-white">
+        <div class="flex gap-1 text-goldsoft mb-3"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div>
+        <p class="text-lg sm:text-xl font-medium leading-snug">"Close rate up 30% in a single quarter."</p>
+        <p class="mt-2 text-[13px] text-white/70">Marcus Delgado, VP Sales</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COACHES -->
+  <section id="coaches" class="reveal mt-2 sm:mt-3 bg-card rounded-hero px-6 sm:px-12 py-14 sm:py-20">
+    <div class="max-w-2xl mb-10 sm:mb-14"><span class="text-[12px] font-bold uppercase tracking-[0.16em] text-gold">Our coaches</span><h2 class="text-3xl sm:text-5xl font-semibold tracking-tight mt-3">Closers who carried a quota</h2></div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div class="group"><div class="rounded-3xl overflow-hidden aspect-[3/4]"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt=""></div><div class="mt-3 font-semibold">Michael Roberts</div><div class="text-[13px] text-mute">Founder &amp; Head Coach</div></div>
+      <div class="group"><div class="rounded-3xl overflow-hidden aspect-[3/4]"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=80" alt=""></div><div class="mt-3 font-semibold">Sarah Whitfield</div><div class="text-[13px] text-mute">Lead Sales Coach</div></div>
+      <div class="group"><div class="rounded-3xl overflow-hidden aspect-[3/4]"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt=""></div><div class="mt-3 font-semibold">David Okafor</div><div class="text-[13px] text-mute">Enablement Lead</div></div>
+      <div class="group"><div class="rounded-3xl overflow-hidden aspect-[3/4]"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=500&q=80" alt=""></div><div class="mt-3 font-semibold">Elena Marchetti</div><div class="text-[13px] text-mute">Negotiation Coach</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="reveal mt-2 sm:mt-3 bg-gold text-white rounded-hero px-6 sm:px-12 py-16 sm:py-24 text-center">
+    <h2 class="text-4xl sm:text-6xl font-semibold tracking-tight max-w-3xl mx-auto">Ready to close more deals?</h2>
+    <p class="mt-5 text-[16px] text-white/85 max-w-xl mx-auto">Book a free 20-minute discovery call. We'll map exactly where your team can win more. No pressure, no obligation.</p>
+    <a href="tel:+14805551234" class="mt-9 inline-flex items-center gap-2 bg-white text-ink text-[13px] font-bold uppercase tracking-[0.12em] rounded-xl px-8 py-4 hover:bg-ink hover:text-white transition">Book a Discovery Call <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-2 sm:px-6 py-12">
+    <div class="grid gap-8 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+      <div>
+        <div class="flex items-center gap-2.5"><svg class="w-7 h-7" viewBox="0 0 48 48" fill="none"><path d="M24 3 41 10.5V25c0 11-8.4 16.6-17 19.8C15.4 41.6 7 36 7 25V10.5L24 3Z" stroke="#1B1813" stroke-width="2"/><rect x="14" y="24" width="4.4" height="12" rx="1" fill="#B0801F"/><rect x="21.8" y="18" width="4.4" height="18" rx="1" fill="#B0801F"/><rect x="29.6" y="27" width="4.4" height="9" rx="1" fill="#B0801F"/><path d="M13 30 L20 22 L25 26 L34 15" stroke="#B0801F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="font-semibold text-[18px]">Scottsdale Sales Training</span></div>
+        <p class="mt-4 text-[14px] text-inksoft max-w-xs">Expert sales coaching and custom training programs. Based in Scottsdale, serving teams everywhere.</p>
+      </div>
+      <div><div class="text-[12px] font-bold uppercase tracking-[0.16em] text-mute mb-4">Programs</div><ul class="space-y-2.5 text-[14px] text-inksoft"><li><a href="#services" class="hover:text-gold">Team Workshops</a></li><li><a href="#services" class="hover:text-gold">1-on-1 Coaching</a></li><li><a href="#services" class="hover:text-gold">Leadership</a></li><li><a href="#services" class="hover:text-gold">Keynotes</a></li></ul></div>
+      <div><div class="text-[12px] font-bold uppercase tracking-[0.16em] text-mute mb-4">Company</div><ul class="space-y-2.5 text-[14px] text-inksoft"><li><a href="#coaches" class="hover:text-gold">Coaches</a></li><li><a href="#work" class="hover:text-gold">Results</a></li><li><a href="#" class="hover:text-gold">About</a></li><li><a href="#" class="hover:text-gold">Blog</a></li></ul></div>
+      <div><div class="text-[12px] font-bold uppercase tracking-[0.16em] text-mute mb-4">Contact</div><ul class="space-y-2.5 text-[14px] text-inksoft"><li><a href="tel:+14805551234" class="hover:text-gold">(480) 555-1234</a></li><li><a href="mailto:hello@scottsdalesalestraining.com" class="hover:text-gold">hello@scottsdalesalestraining.com</a></li><li>Scottsdale, Arizona</li></ul></div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-line flex flex-wrap gap-3 justify-between text-[12px] text-mute">
+      <span>© <span id="yr">2026</span> Scottsdale Sales Training. All rights reserved.</span><span>Privacy · Terms</span>
+    </div>
+  </footer>
+
+</div>
+<script>
+(function(){
+  var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  if(burger&&menu){burger.addEventListener('click',function(){menu.classList.toggle('hidden');});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.add('hidden');});});}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>

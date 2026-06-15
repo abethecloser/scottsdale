@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scottsdale Sales Training | Close More Deals on Your Terms</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Practical sales training and coaching in Scottsdale, AZ. Shorten your sales cycle, lift win rates, and build a team that loves to close.">
+<meta name="theme-color" content="#ffffff">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      ink:'#0B0E0C', char:'#131714',
+      emerald:{ DEFAULT:'#0E3A2C', light:'#1C7A5A', deep:'#082319', glow:'#23A579' },
+      gold:'#C9A24A', goldlt:'#E2C26C',
+      paper:'#F5F2EA', paper2:'#ECE7D9', inkt:'#16170F'
+    },
+    fontFamily: { sans:['Inter','sans-serif'], display:['"Playfair Display"','Georgia','serif'] },
+    borderRadius: { '4xl':'2rem', '5xl':'3rem' }
+  } }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:"Inter",-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+  .accent{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;color:#C9A24A}
+  .display{font-weight:300;line-height:1.02;letter-spacing:-.02em}
+  .h-display{font-weight:300;letter-spacing:-.02em;line-height:1.04}
+  .hero-h{font-size:clamp(2.5rem,8.5vw,4.75rem);text-shadow:0 2px 12px rgba(0,0,0,.35)}
+  /* word reveal */
+  .word{display:inline-block;opacity:0;transform:translateY(15px);filter:blur(4px);
+    transition:opacity .7s cubic-bezier(.16,.84,.3,1),transform .7s cubic-bezier(.16,.84,.3,1),filter .7s cubic-bezier(.16,.84,.3,1);will-change:transform,opacity,filter}
+  .word.in{opacity:1;transform:none;filter:blur(0)}
+  #cta-wrap{opacity:0;transform:translateY(16px);filter:blur(4px);transition:all .8s cubic-bezier(.16,.84,.3,1)}
+  #cta-wrap.in{opacity:1;transform:none;filter:blur(0)}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.3,1),transform .8s cubic-bezier(.16,.84,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .kenburns{animation:kb 20s ease-out forwards}
+  @keyframes kb{from{transform:scale(1.14)}to{transform:scale(1)}}
+  .zoomimg{transition:transform .9s cubic-bezier(.16,.84,.3,1)}
+  .group:hover .zoomimg, .car-card:hover .zoomimg{transform:scale(1.06)}
+  .pill-shadow{box-shadow:0 10px 30px -8px rgba(0,0,0,.45)}
+  .pill-shadow-w{box-shadow:0 16px 44px -12px rgba(0,0,0,.5)}
+  .ring-gold{box-shadow:inset 0 0 0 1px rgba(201,162,74,.4)}
+  /* text + image marquee */
+  .mq-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .mq{display:flex;width:max-content;animation:mq 38s linear infinite}
+  .mq.rev{animation-direction:reverse;animation-duration:46s}
+  .mq:hover{animation-play-state:paused}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  .txtmq{animation-duration:30s}
+  /* carousel */
+  .car{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    scrollbar-width:none;padding-bottom:4px}
+  .car::-webkit-scrollbar{display:none}
+  .car-card{scroll-snap-align:start;flex:0 0 86%}
+  @media(min-width:768px){.car-card{flex:0 0 calc(33.333% - 11px)}}
+  .car-dot{width:7px;height:7px;border-radius:99px;background:rgba(22,23,15,.22);transition:.3s}
+  .car-dot.on{background:#C9A24A;width:22px}
+  @media (prefers-reduced-motion: reduce){
+    .word,#cta-wrap,.reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+    .kenburns,.mq{animation:none}
+  }
+</style>
+</head>
+<body class="bg-white text-inkt">
+
+<svg width="0" height="0" class="absolute" aria-hidden="true"><defs>
+  <linearGradient id="g-ink" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3a3a"/><stop offset="1" stop-color="#0a0a0a"/></linearGradient>
+</defs></svg>
+
+<div class="p-3 sm:p-5">
+
+  <!-- HEADER -->
+  <header class="flex items-center justify-between gap-4 px-2 sm:px-4 py-3 sm:py-4">
+    <a href="#" class="flex items-center gap-2.5 shrink-0">
+      <svg class="w-8 h-8" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <path d="M24 3 41 10.5V25c0 11-8.4 16.6-17 19.8C15.4 41.6 7 36 7 25V10.5L24 3Z" stroke="url(#g-ink)" stroke-width="2"/>
+        <rect x="14" y="24" width="4.4" height="12" rx="1" fill="#C9A24A"/><rect x="21.8" y="18" width="4.4" height="18" rx="1" fill="#C9A24A"/><rect x="29.6" y="27" width="4.4" height="9" rx="1" fill="#C9A24A"/>
+        <path d="M13 30 L20 22 L25 26 L34 15" stroke="#C9A24A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 15 H34 V19" stroke="#C9A24A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="font-medium text-[19px] sm:text-[20px] tracking-tight leading-none">Scottsdale</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-[14px] text-neutral-500">
+      <a href="#programs" class="hover:text-inkt transition-colors">Programs</a>
+      <a href="#gallery" class="hover:text-inkt transition-colors">Inside the room</a>
+      <a href="#results" class="hover:text-inkt transition-colors">Results</a>
+      <a href="#coaches" class="hover:text-inkt transition-colors">Coaches</a>
+    </nav>
+    <a href="#contact" class="pill-shadow shrink-0 inline-flex items-center rounded-full bg-ink text-white text-[13px] sm:text-[14px] font-medium px-4 sm:px-5 py-2.5 hover:bg-char transition-colors">Request a quote</a>
+  </header>
+
+  <!-- HERO -->
+  <main class="relative rounded-4xl sm:rounded-5xl overflow-hidden min-h-[82svh] flex">
+    <img class="kenburns absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1700&q=80" alt="Sales training workshop in session">
+    <div class="absolute inset-0 bg-emerald-deep/35 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/25 to-black/75"></div>
+    <div class="relative z-10 w-full flex flex-col justify-end items-center text-center px-6 pb-10 sm:pb-16">
+      <p id="loc" class="mb-5 sm:mb-7 text-[11px] sm:text-[12px] font-medium tracking-[0.28em] uppercase text-white/65">
+        <span class="word">Scottsdale,</span> <span class="word">Arizona</span>
+      </p>
+      <h1 id="headline" class="display hero-h text-white max-w-[16ch]">
+        <span class="word">Close</span> <span class="word">More</span> <span class="word">Deals</span><br>
+        <span class="word">On</span> <span class="word accent">Your</span> <span class="word">Terms</span>
+      </h1>
+      <p id="desc" class="mt-5 sm:mt-6 max-w-[440px] text-[15px] leading-relaxed text-white/90">
+        Practical sales coaching that shortens your cycle and lifts win rates, built around the real deals your team is working right now.
+      </p>
+      <div id="cta-wrap" class="mt-8 sm:mt-10">
+        <a href="#contact" class="pill-shadow-w inline-flex items-center gap-2 rounded-full bg-white text-inkt text-[15px] font-medium px-7 py-4 hover:bg-paper transition-colors">
+          Book a Discovery Call
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- SKILLS MARQUEE -->
+  <div class="mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-emerald text-white py-5 mq-wrap">
+    <div class="mq txtmq items-center text-[15px] font-medium uppercase tracking-wide">
+      <span class="flex items-center">
+        <span class="px-6">Prospecting</span><span class="text-gold">✦</span><span class="px-6">Objection handling</span><span class="text-gold">✦</span><span class="px-6">Discovery</span><span class="text-gold">✦</span><span class="px-6">Negotiation</span><span class="text-gold">✦</span><span class="px-6">Closing</span><span class="text-gold">✦</span><span class="px-6">Pipeline</span><span class="text-gold">✦</span><span class="px-6">Forecasting</span><span class="text-gold">✦</span>
+      </span>
+      <span class="flex items-center" aria-hidden="true">
+        <span class="px-6">Prospecting</span><span class="text-gold">✦</span><span class="px-6">Objection handling</span><span class="text-gold">✦</span><span class="px-6">Discovery</span><span class="text-gold">✦</span><span class="px-6">Negotiation</span><span class="text-gold">✦</span><span class="px-6">Closing</span><span class="text-gold">✦</span><span class="px-6">Pipeline</span><span class="text-gold">✦</span><span class="px-6">Forecasting</span><span class="text-gold">✦</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- BENTO -->
+  <section id="results" class="reveal mt-3 sm:mt-5">
+    <div class="px-2 sm:px-4 mb-5 sm:mb-7 max-w-2xl">
+      <span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-emerald-light">Why teams win with us</span>
+      <h2 class="h-display text-3xl sm:text-5xl mt-3">Proof you can <span class="accent">measure</span></h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 auto-rows-[170px] md:auto-rows-[210px] gap-3 sm:gap-4">
+
+      <!-- A: big image -->
+      <a href="#gallery" class="group relative col-span-2 row-span-2 rounded-4xl overflow-hidden">
+        <img class="zoomimg absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1100&q=80" alt="Team workshop">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+        <div class="absolute left-6 bottom-6 right-6 text-white">
+          <div class="text-[12px] uppercase tracking-[0.18em] text-white/70">On-site &amp; virtual</div>
+          <div class="text-2xl sm:text-3xl font-light mt-1">Workshops that rebuild how your team sells</div>
+        </div>
+      </a>
+
+      <!-- B: emerald stat -->
+      <div class="col-span-1 row-span-1 rounded-4xl bg-emerald text-white p-5 sm:p-6 flex flex-col justify-between">
+        <div class="text-[12px] uppercase tracking-[0.16em] text-white/55">Win-rate</div>
+        <div><div class="text-4xl sm:text-5xl font-light text-goldlt">38%</div><div class="text-[13px] text-white/65 mt-1">average lift</div></div>
+      </div>
+
+      <!-- C: gold flat stat -->
+      <div class="col-span-1 row-span-1 rounded-4xl bg-gold text-inkt p-5 sm:p-6 flex flex-col justify-between">
+        <div class="text-[12px] uppercase tracking-[0.16em] text-inkt/60">Trained</div>
+        <div><div class="text-4xl sm:text-5xl font-light">2,500+</div><div class="text-[13px] text-inkt/70 mt-1">reps since 2009</div></div>
+      </div>
+
+      <!-- D: video-style tile -->
+      <button data-video class="group col-span-2 row-span-1 relative rounded-4xl overflow-hidden text-left">
+        <img class="zoomimg absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1100&q=80" alt="Keynote">
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="absolute inset-0 flex items-center gap-4 px-6">
+          <span class="w-14 h-14 rounded-full bg-white/95 text-ink flex items-center justify-center shrink-0 group-hover:scale-105 transition"><svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="text-white"><span class="block text-[12px] uppercase tracking-[0.16em] text-white/70">Watch · 0:48</span><span class="block text-lg sm:text-xl font-light mt-0.5">Inside a live workshop</span></span>
+        </div>
+      </button>
+
+      <!-- E: small image -->
+      <a href="#coaches" class="group col-span-1 row-span-1 relative rounded-4xl overflow-hidden">
+        <img class="zoomimg absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80" alt="1-on-1 coaching">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+        <div class="absolute left-4 bottom-4 text-white text-[14px] font-medium">1-on-1 coaching</div>
+      </a>
+
+      <!-- F: quote -->
+      <div class="col-span-2 row-span-1 rounded-4xl bg-ink text-white p-6 flex flex-col justify-center">
+        <div class="flex gap-1 text-gold mb-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div>
+        <p class="text-[15px] sm:text-base leading-snug">"Close rate up 30% in a quarter."</p>
+        <div class="text-[12px] text-white/50 mt-2">Marcus Delgado, VP Sales</div>
+      </div>
+
+      <!-- G: gold-outline stat -->
+      <div class="col-span-1 row-span-1 rounded-4xl bg-paper ring-gold p-5 sm:p-6 flex flex-col justify-between">
+        <div class="text-[12px] uppercase tracking-[0.16em] text-inkt/45">Ramp</div>
+        <div><div class="text-4xl sm:text-5xl font-light text-emerald-light">8 wks</div><div class="text-[13px] text-inkt/55 mt-1">new-hire to quota</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS CAROUSEL -->
+  <section id="programs" class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-paper px-6 sm:px-12 py-14 sm:py-20" data-carousel>
+    <div class="flex items-end justify-between gap-6 mb-8 sm:mb-12">
+      <div class="max-w-xl">
+        <span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-emerald-light">Programs</span>
+        <h2 class="h-display text-3xl sm:text-5xl mt-3">Built around <span class="accent">your</span> team</h2>
+      </div>
+      <div class="hidden sm:flex gap-2">
+        <button data-prev class="w-12 h-12 rounded-full ring-gold flex items-center justify-center text-inkt hover:bg-ink hover:text-white transition"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+        <button data-next class="w-12 h-12 rounded-full ring-gold flex items-center justify-center text-inkt hover:bg-ink hover:text-white transition"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="car" data-track>
+      <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
+        <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Team workshops"><span class="absolute top-4 left-4 text-[11px] uppercase tracking-wider bg-white/90 text-inkt rounded-full px-3 py-1">Most booked</span></div>
+        <div class="p-6"><h3 class="text-xl font-medium">Sales Team Workshops</h3><p class="mt-2 text-[14px] text-inkt/55">Role-play driven sessions, on-site or virtual.</p></div>
+      </a>
+      <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
+        <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" alt="1-on-1 coaching"></div>
+        <div class="p-6"><h3 class="text-xl font-medium">1-on-1 Coaching</h3><p class="mt-2 text-[14px] text-inkt/55">Private weekly coaching for reps and leaders.</p></div>
+      </a>
+      <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
+        <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Leadership"></div>
+        <div class="p-6"><h3 class="text-xl font-medium">Sales Leadership</h3><p class="mt-2 text-[14px] text-inkt/55">Coach deals, forecast, build a winning culture.</p></div>
+      </a>
+      <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
+        <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80" alt="Keynotes"></div>
+        <div class="p-6"><h3 class="text-xl font-medium">Keynotes &amp; Kickoffs</h3><p class="mt-2 text-[14px] text-inkt/55">High-energy talks for kickoffs and conferences.</p></div>
+      </a>
+      <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
+        <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt="Virtual"></div>
+        <div class="p-6"><h3 class="text-xl font-medium">New-Hire Ramp</h3><p class="mt-2 text-[14px] text-inkt/55">Get new reps to quota in weeks, not months.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- GALLERY MARQUEE -->
+  <section id="gallery" class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-ink text-white py-12 sm:py-16">
+    <div class="px-6 sm:px-12 mb-8 max-w-xl">
+      <span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-gold">Inside the room</span>
+      <h2 class="h-display text-3xl sm:text-5xl mt-3 text-white">Real sessions, <span class="accent">real reps</span></h2>
+    </div>
+    <div class="mq-wrap mb-4">
+      <div class="mq gap-4">
+        <div class="flex gap-4 pr-4">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="flex gap-4 pr-4" aria-hidden="true">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="mq-wrap">
+      <div class="mq rev gap-4">
+        <div class="flex gap-4 pr-4">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="flex gap-4 pr-4" aria-hidden="true">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&q=80" alt="">
+          <img class="h-44 sm:h-56 w-auto rounded-4xl object-cover" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS CAROUSEL -->
+  <section class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-paper2 px-6 sm:px-12 py-14 sm:py-20" data-carousel data-auto>
+    <div class="max-w-xl mb-8 sm:mb-12">
+      <span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-emerald-light">What clients say</span>
+      <h2 class="h-display text-3xl sm:text-5xl mt-3">Teams that <span class="accent">win more</span></h2>
+    </div>
+    <div class="car" data-track>
+      <figure class="car-card rounded-4xl bg-white ring-1 ring-inkt/8 p-7 flex flex-col">
+        <div class="flex gap-1 text-gold mb-4"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div>
+        <blockquote class="text-[15px] leading-relaxed text-inkt/85 flex-1">Our close rate jumped 30% in one quarter. The role-play sessions completely changed how my reps handle objections.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3"><img class="w-10 h-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80" alt=""><span><span class="block text-[14px] font-medium">Marcus Delgado</span><span class="block text-[12px] text-inkt/50">VP Sales, mid-market SaaS</span></span></figcaption>
+      </figure>
+      <figure class="car-card rounded-4xl bg-white ring-1 ring-inkt/8 p-7 flex flex-col">
+        <div class="flex gap-1 text-gold mb-4"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div>
+        <blockquote class="text-[15px] leading-relaxed text-inkt/85 flex-1">Best sales investment we've made. Practical, energizing, and the follow-up coaching kept it from fading.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3"><img class="w-10 h-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=120&q=80" alt=""><span><span class="block text-[14px] font-medium">Dana Russo</span><span class="block text-[12px] text-inkt/50">Founder, creative agency</span></span></figcaption>
+      </figure>
+      <figure class="car-card rounded-4xl bg-white ring-1 ring-inkt/8 p-7 flex flex-col">
+        <div class="flex gap-1 text-gold mb-4"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div>
+        <blockquote class="text-[15px] leading-relaxed text-inkt/85 flex-1">My new hires used to take six months to ramp. After this program, they're hitting quota in eight weeks.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3"><img class="w-10 h-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80" alt=""><span><span class="block text-[14px] font-medium">Eric Lindqvist</span><span class="block text-[12px] text-inkt/50">Sales Director, distribution</span></span></figcaption>
+      </figure>
+      <figure class="car-card rounded-4xl bg-white ring-1 ring-inkt/8 p-7 flex flex-col">
+        <div class="flex gap-1 text-gold mb-4"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3L22 9.3l-5 4.7 1.3 6.9L12 17.6 5.7 20.9 7 14 2 9.3l7.1-1z"/></svg></div>
+        <blockquote class="text-[15px] leading-relaxed text-inkt/85 flex-1">The discovery framework alone paid for the whole engagement. Bigger deals, shorter cycles.</blockquote>
+        <figcaption class="mt-5 flex items-center gap-3"><img class="w-10 h-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt=""><span><span class="block text-[14px] font-medium">Priya Nair</span><span class="block text-[12px] text-inkt/50">RevOps Lead, fintech</span></span></figcaption>
+      </figure>
+    </div>
+    <div data-dots class="flex gap-2 mt-8"></div>
+  </section>
+
+  <!-- COACHES -->
+  <section id="coaches" class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-ink text-white px-6 sm:px-12 py-14 sm:py-20">
+    <div class="max-w-2xl">
+      <span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-gold">Our coaches</span>
+      <h2 class="h-display text-3xl sm:text-5xl mt-3 text-white">Closers who carried <span class="accent">a quota</span></h2>
+    </div>
+    <div class="mt-10 sm:mt-14 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div class="group"><div class="rounded-4xl overflow-hidden aspect-[3/4]"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80" alt=""></div><div class="mt-3 font-medium">Michael Roberts</div><div class="text-[13px] text-white/45">Founder &amp; Head Coach</div></div>
+      <div class="group"><div class="rounded-4xl overflow-hidden aspect-[3/4]"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=80" alt=""></div><div class="mt-3 font-medium">Sarah Whitfield</div><div class="text-[13px] text-white/45">Lead Sales Coach</div></div>
+      <div class="group"><div class="rounded-4xl overflow-hidden aspect-[3/4]"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt=""></div><div class="mt-3 font-medium">David Okafor</div><div class="text-[13px] text-white/45">Enablement Lead</div></div>
+      <div class="group"><div class="rounded-4xl overflow-hidden aspect-[3/4]"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=500&q=80" alt=""></div><div class="mt-3 font-medium">Elena Marchetti</div><div class="text-[13px] text-white/45">Negotiation Coach</div></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact" class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-emerald-deep text-white px-6 sm:px-12 py-16 sm:py-24 text-center relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(600px 320px at 50% 0%,rgba(35,165,121,.22),transparent 60%)"></div>
+    <div class="relative">
+      <h2 class="h-display text-4xl sm:text-6xl max-w-3xl mx-auto">Ready to close <span class="accent">more deals?</span></h2>
+      <p class="mt-5 text-[15px] text-white/75 max-w-xl mx-auto">Book a free 20-minute discovery call. We'll map exactly where your team can win more. No pressure, no obligation.</p>
+      <a href="tel:+14805551234" class="pill-shadow-w mt-9 inline-flex items-center gap-2 rounded-full bg-white text-inkt text-[15px] font-medium px-8 py-4 hover:bg-paper transition-colors">
+        Book a Discovery Call
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-2 sm:px-6 py-10 sm:py-12">
+    <div class="grid gap-8 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <svg class="w-7 h-7" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 3 41 10.5V25c0 11-8.4 16.6-17 19.8C15.4 41.6 7 36 7 25V10.5L24 3Z" stroke="url(#g-ink)" stroke-width="2"/><rect x="14" y="24" width="4.4" height="12" rx="1" fill="#C9A24A"/><rect x="21.8" y="18" width="4.4" height="18" rx="1" fill="#C9A24A"/><rect x="29.6" y="27" width="4.4" height="9" rx="1" fill="#C9A24A"/><path d="M13 30 L20 22 L25 26 L34 15" stroke="#C9A24A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 15 H34 V19" stroke="#C9A24A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="font-medium text-[18px]">Scottsdale Sales Training</span>
+        </div>
+        <p class="mt-4 text-[14px] text-inkt/55 max-w-xs">Sales training, coaching and workshops that turn good reps into great closers. Based in Scottsdale, serving teams everywhere.</p>
+      </div>
+      <div><div class="text-[12px] font-semibold tracking-[0.16em] uppercase text-inkt/40 mb-4">Programs</div><ul class="space-y-2.5 text-[14px] text-inkt/65"><li><a href="#programs" class="hover:text-emerald-light">Team Workshops</a></li><li><a href="#programs" class="hover:text-emerald-light">1-on-1 Coaching</a></li><li><a href="#programs" class="hover:text-emerald-light">Leadership</a></li><li><a href="#programs" class="hover:text-emerald-light">Keynotes</a></li></ul></div>
+      <div><div class="text-[12px] font-semibold tracking-[0.16em] uppercase text-inkt/40 mb-4">Company</div><ul class="space-y-2.5 text-[14px] text-inkt/65"><li><a href="#coaches" class="hover:text-emerald-light">Coaches</a></li><li><a href="#results" class="hover:text-emerald-light">Results</a></li><li><a href="#gallery" class="hover:text-emerald-light">Inside the room</a></li><li><a href="#" class="hover:text-emerald-light">FAQ</a></li></ul></div>
+      <div><div class="text-[12px] font-semibold tracking-[0.16em] uppercase text-inkt/40 mb-4">Get in touch</div><ul class="space-y-2.5 text-[14px] text-inkt/65"><li><a href="tel:+14805551234" class="hover:text-emerald-light">(480) 555-1234</a></li><li><a href="mailto:hello@scottsdalesalestraining.com" class="hover:text-emerald-light">hello@scottsdalesalestraining.com</a></li><li>Scottsdale, Arizona</li><li>Mon-Fri 8-5 MST</li></ul></div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-inkt/10 flex flex-wrap gap-3 justify-between text-[12px] text-inkt/40">
+      <span>© <span id="yr">2026</span> Scottsdale Sales Training. All rights reserved.</span><span>Privacy · Terms</span>
+    </div>
+  </footer>
+
+</div>
+
+<!-- VIDEO LIGHTBOX -->
+<div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-5">
+  <div class="relative w-full max-w-3xl aspect-video rounded-4xl overflow-hidden bg-ink ring-1 ring-white/15">
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white/80 px-8">
+      <svg class="w-12 h-12 text-gold mb-4" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <p class="text-[15px]">Your workshop video drops in here. Send us an MP4 and we'll wire it up.</p>
+    </div>
+    <button id="lb-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 text-white flex items-center justify-center hover:bg-white/25" aria-label="Close"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
+
+  // headline / description word reveal
+  var desc=document.getElementById('desc');
+  var dWords=desc.textContent.trim().split(/\s+/); desc.textContent='';
+  var descSpans=dWords.map(function(w,i){var s=document.createElement('span');s.className='word';s.textContent=w;desc.appendChild(s);if(i<dWords.length-1)desc.appendChild(document.createTextNode(' '));return s;});
+  var hWords=[].slice.call(document.querySelectorAll('#headline .word'));
+  var labelWords=[].slice.call(document.querySelectorAll('#loc .word'));
+  var cta=document.getElementById('cta-wrap');
+
+  if(reduce){
+    document.querySelectorAll('.word').forEach(function(w){w.classList.add('in');});
+    cta.classList.add('in');
+    document.querySelectorAll('.reveal').forEach(function(s){s.classList.add('in');});
+  } else {
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      var t=200;
+      labelWords.forEach(function(w){setTimeout(function(){w.classList.add('in');},t);t+=90;}); t+=140;
+      hWords.forEach(function(w){setTimeout(function(){w.classList.add('in');},t);t+=120;}); t+=160;
+      descSpans.forEach(function(w){setTimeout(function(){w.classList.add('in');},t);t+=40;});
+      setTimeout(function(){cta.classList.add('in');},t+180);
+    });});
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }
+
+  // carousels
+  document.querySelectorAll('[data-carousel]').forEach(function(root){
+    var track=root.querySelector('[data-track]');
+    var prev=root.querySelector('[data-prev]');
+    var next=root.querySelector('[data-next]');
+    function step(){ var c=track.firstElementChild; return c? c.getBoundingClientRect().width+16 : track.clientWidth*0.8; }
+    if(next) next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+    if(prev) prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+
+    // dots + autoplay (testimonials)
+    var dotsWrap=root.querySelector('[data-dots]');
+    var cards=[].slice.call(track.children);
+    if(dotsWrap){
+      cards.forEach(function(_,i){var d=document.createElement('button');d.className='car-dot'+(i===0?' on':'');d.addEventListener('click',function(){track.scrollTo({left:i*step(),behavior:'smooth'});});dotsWrap.appendChild(d);});
+      var dots=[].slice.call(dotsWrap.children);
+      track.addEventListener('scroll',function(){var idx=Math.round(track.scrollLeft/step());dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});},{passive:true});
+    }
+    if(root.hasAttribute('data-auto') && !reduce){
+      var timer=setInterval(function(){
+        var max=track.scrollWidth-track.clientWidth-4;
+        if(track.scrollLeft>=max){track.scrollTo({left:0,behavior:'smooth'});}
+        else{track.scrollBy({left:step(),behavior:'smooth'});}
+      },5000);
+      root.addEventListener('mouseenter',function(){clearInterval(timer);});
+    }
+  });
+
+  // video lightbox
+  var lb=document.getElementById('lightbox');
+  document.querySelectorAll('[data-video]').forEach(function(b){b.addEventListener('click',function(){lb.classList.remove('hidden');lb.classList.add('flex');});});
+  function closeLb(){lb.classList.add('hidden');lb.classList.remove('flex');}
+  document.getElementById('lb-close').addEventListener('click',closeLb);
+  lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+})();
+</script>
+</body>
+</html>

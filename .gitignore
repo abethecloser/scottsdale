@@ -1,0 +1,10 @@
+# Claude/agent tooling
+.agents/
+skills-lock.json
+
+# separate project (not part of demodesigns)
+quest-drafting-design/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
