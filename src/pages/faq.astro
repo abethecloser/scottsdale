@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import { getSiteSettings } from '../lib/queries';
+
+const settings = await getSiteSettings();
+
+const faqs = [
+  { q: 'Do you work with our industry?', a: 'Yes. We have coached SaaS, distribution, fintech, services, and more. The selling motions differ, but the fundamentals of discovery, objection handling, and closing carry across. We tailor every session to your market and your real deals.' },
+  { q: 'On-site, virtual, or both?', a: 'Both. Workshops run at your office or fully online, and ongoing coaching is usually virtual. Many teams do a live kickoff followed by virtual coaching to keep the skills sharp.' },
+  { q: 'How long is a typical engagement?', a: 'A single workshop can be a day. Most teams see the biggest gains from a quarter of workshops plus follow-up coaching, which is what keeps new habits from fading.' },
+  { q: 'How do you measure results?', a: 'We agree on the numbers that matter to you up front, usually win rate, cycle length, and ramp time, then track them against a baseline. Our clients typically see meaningful lift within a quarter.' },
+  { q: 'How small or large does our team need to be?', a: 'We coach solo founders selling their own product all the way up to teams of dozens. Group workshops work best around 6 to 20 reps, but 1-on-1 coaching fits any size.' },
+  { q: 'What does it cost?', a: 'It depends on the format and length. Tell us your team size and what you want to improve, and we will come back with a clear plan and price within one business day.' },
+];
+---
+<Base
+  title="FAQ | Scottsdale Sales Training"
+  description="Answers to common questions about Scottsdale Sales Training: industries, on-site vs virtual, engagement length, how we measure results, team size, and cost."
+>
+  <Header settings={settings} />
+
+  <!-- HERO -->
+  <section class="reveal relative rounded-4xl sm:rounded-5xl overflow-hidden mt-2 bg-ink text-white px-6 sm:px-12 py-16 sm:py-24">
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(600px 320px at 80% 0%,rgba(35,165,121,.18),transparent 60%)"></div>
+    <div class="relative max-w-2xl">
+      <span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-gold">FAQ</span>
+      <h1 class="h-display text-4xl sm:text-6xl mt-3 text-white">Questions, <span class="accent">answered</span></h1>
+      <p class="mt-5 text-[15px] text-white/70 max-w-lg">The things teams ask us most before getting started. Don't see yours? Just reach out.</p>
+    </div>
+  </section>
+
+  <!-- LIST -->
+  <section class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-paper px-4 sm:px-8 py-8 sm:py-12">
+    <div class="max-w-3xl mx-auto divide-y divide-inkt/10">
+      {faqs.map((f, i) => (
+        <details class="group py-2" open={i === 0}>
+          <summary class="cursor-pointer list-none flex items-center justify-between gap-4 py-4 px-2">
+            <span class="text-lg sm:text-xl font-medium">{f.q}</span>
+            <span class="shrink-0 w-8 h-8 rounded-full ring-1 ring-inkt/15 flex items-center justify-center text-emerald-light transition-transform group-open:rotate-45">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+          </summary>
+          <p class="px-2 pb-5 pr-12 text-[15px] leading-relaxed text-inkt/70">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand settings={settings} />
+  <Footer settings={settings} />
+</Base>

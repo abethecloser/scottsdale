@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getSiteSettings } from '../lib/queries';
+
+const settings = await getSiteSettings();
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'Programs', href: '/programs' },
+  { label: 'Insights', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+<Base title="Page not found | Scottsdale Sales Training" description="That page could not be found.">
+  <Header settings={settings} />
+
+  <section class="reveal relative rounded-4xl sm:rounded-5xl overflow-hidden mt-2 bg-ink text-white px-6 sm:px-12 py-24 sm:py-32 text-center">
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(600px 320px at 50% 0%,rgba(35,165,121,.18),transparent 60%)"></div>
+    <div class="relative max-w-xl mx-auto">
+      <div class="text-gold text-[12px] font-semibold tracking-[0.24em] uppercase">Error 404</div>
+      <h1 class="h-display text-4xl sm:text-6xl mt-4">This page went <span class="accent">off-script</span></h1>
+      <p class="mt-5 text-[15px] text-white/70">The page you're after isn't here. Let's get you back on track.</p>
+      <div class="mt-8 flex flex-wrap gap-2.5 justify-center">
+        {links.map((l) => (
+          <a href={l.href} class="rounded-full bg-white/[.08] border border-white/15 text-white text-[14px] font-medium px-5 py-2.5 hover:bg-white hover:text-inkt transition-colors">{l.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer settings={settings} />
+</Base>

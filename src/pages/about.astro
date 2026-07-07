@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Coaches from '../components/Coaches.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import { getSiteSettings, getTeam } from '../lib/queries';
+
+const [settings, team] = await Promise.all([getSiteSettings(), getTeam()]);
+const stats = [
+  { value: settings.statWinRate, label: 'average win-rate lift' },
+  { value: settings.statTrained, label: 'reps trained' },
+  { value: settings.statRampWeeks, label: 'new-hire to quota' },
+];
+---
+<Base
+  title="About | Scottsdale Sales Training"
+  description="Meet the coaches behind Scottsdale Sales Training. Real closers who carried a quota, teaching teams in Scottsdale, AZ to shorten the cycle and win more."
+>
+  <Header settings={settings} />
+
+  <!-- HERO -->
+  <section class="reveal relative rounded-4xl sm:rounded-5xl overflow-hidden mt-2 bg-ink text-white px-6 sm:px-12 py-16 sm:py-24">
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(600px 320px at 15% 0%,rgba(35,165,121,.2),transparent 60%)"></div>
+    <div class="relative max-w-2xl">
+      <span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-gold">About us</span>
+      <h1 class="h-display text-4xl sm:text-6xl mt-3 text-white">Closers who teach <span class="accent">closing</span></h1>
+      <p class="mt-5 text-[15px] text-white/70 max-w-lg">We're a Scottsdale-based sales training team. We don't lecture from theory. We coach the real deals your reps are working right now, so the skills stick and the number moves.</p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-paper px-6 sm:px-12 py-14 sm:py-20">
+    <div class="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-16 items-center">
+      <div class="prose-basic max-w-xl">
+        <h2>Built on the floor, not in a classroom</h2>
+        <p>Scottsdale Sales Training started with a simple belief: reps get better by practicing the exact conversations they lose, not by memorizing frameworks. Every coach here carried a quota before they ever taught one.</p>
+        <p>We run role-play driven workshops, private 1-on-1 coaching, and leadership programs, on-site or virtual. The goal is always the same. Shorter cycles, higher win rates, and a team that actually enjoys closing.</p>
+      </div>
+      <div class="rounded-4xl overflow-hidden aspect-[4/5]">
+        <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=900&q=80" alt="A Scottsdale Sales Training workshop in session">
+      </div>
+    </div>
+
+    <!-- stats -->
+    <div class="grid grid-cols-3 gap-3 sm:gap-5 mt-12 sm:mt-16">
+      {stats.map((s) => (
+        <div class="rounded-4xl bg-white ring-1 ring-inkt/8 p-6 sm:p-8 text-center">
+          <div class="text-3xl sm:text-5xl font-light text-emerald-light">{s.value}</div>
+          <div class="text-[12px] sm:text-[13px] text-inkt/55 mt-2">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Coaches team={team} />
+  <CtaBand settings={settings} />
+  <Footer settings={settings} />
+</Base>

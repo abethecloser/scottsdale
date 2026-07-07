@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import LeadForm from '../components/LeadForm.astro';
+import Footer from '../components/Footer.astro';
+import { getSiteSettings } from '../lib/queries';
+
+const settings = await getSiteSettings();
+const details = [
+  { label: 'Call us', value: settings.phone, href: `tel:${settings.tel}` },
+  { label: 'Email us', value: settings.email, href: `mailto:${settings.email}` },
+  { label: 'Where', value: settings.address },
+  { label: 'Hours', value: settings.hours },
+];
+---
+<Base
+  title="Contact | Scottsdale Sales Training"
+  description={`Talk to Scottsdale Sales Training about your team. Call ${settings.phone} or send us a note and we'll come back within one business day.`}
+>
+  <Header settings={settings} />
+
+  <!-- HERO -->
+  <section class="reveal relative rounded-4xl sm:rounded-5xl overflow-hidden mt-2 bg-ink text-white px-6 sm:px-12 py-16 sm:py-24">
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(600px 320px at 80% 0%,rgba(201,162,74,.16),transparent 60%)"></div>
+    <div class="relative max-w-2xl">
+      <span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-gold">Contact</span>
+      <h1 class="h-display text-4xl sm:text-6xl mt-3 text-white">Let's talk about <span class="accent">your team</span></h1>
+      <p class="mt-5 text-[15px] text-white/70 max-w-lg">Tell us where your reps are getting stuck. We'll come back within one business day with a plan, or you can book a free 20-minute call.</p>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="reveal mt-3 sm:mt-5 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+    {details.map((d) => (
+      <div class="rounded-4xl bg-paper px-6 py-7">
+        <div class="text-[12px] uppercase tracking-[0.16em] text-emerald-light font-semibold">{d.label}</div>
+        {d.href
+          ? <a href={d.href} class="block mt-2 text-lg font-medium hover:text-emerald-light break-words">{d.value}</a>
+          : <div class="mt-2 text-lg font-medium">{d.value}</div>}
+      </div>
+    ))}
+  </section>
+
+  <LeadForm settings={settings} />
+  <Footer settings={settings} />
+</Base>

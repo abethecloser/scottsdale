@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Footer from '../../components/Footer.astro';
+import { getPrograms, getSiteSettings } from '../../lib/queries';
+
+const [programs, settings] = await Promise.all([getPrograms(), getSiteSettings()]);
+---
+<Base
+  title="Programs | Scottsdale Sales Training"
+  description="Sales workshops, 1-on-1 coaching, leadership programs, keynotes, and new-hire ramp, built around your team. Scottsdale, AZ."
+>
+  <Header settings={settings} />
+
+  <!-- HERO -->
+  <section class="reveal relative rounded-4xl sm:rounded-5xl overflow-hidden mt-2 bg-ink text-white px-6 sm:px-12 py-16 sm:py-24">
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(600px 320px at 20% 0%,rgba(35,165,121,.2),transparent 60%)"></div>
+    <div class="relative max-w-2xl">
+      <span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-gold">Programs</span>
+      <h1 class="h-display text-4xl sm:text-6xl mt-3 text-white">Built around <span class="accent">your team</span></h1>
+      <p class="mt-5 text-[15px] text-white/70 max-w-lg">Every program is hands-on and tailored to the deals your reps are working right now. Pick a starting point, or tell us the problem and we'll shape the right mix.</p>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section class="reveal mt-3 sm:mt-5">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      {programs.map((p) => (
+        <a href={`/programs/${p.slug}`} class="group rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8 flex flex-col">
+          <div class="relative h-52 overflow-hidden">
+            <img class="zoomimg w-full h-full object-cover" src={p.imageUrl} alt={p.imageAlt}>
+            {p.badge && <span class="absolute top-4 left-4 text-[11px] uppercase tracking-wider bg-white/90 text-inkt rounded-full px-3 py-1">{p.badge}</span>}
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h2 class="text-xl font-medium">{p.title}</h2>
+            <p class="mt-2 text-[14px] text-inkt/55 flex-1">{p.shortDescription}</p>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-[14px] font-medium text-emerald-light">
+              See the program
+              <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand settings={settings} />
+  <Footer settings={settings} />
+</Base>
