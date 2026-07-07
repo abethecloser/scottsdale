@@ -8,3 +8,13 @@ quest-drafting-design/
 # OS / editor junk
 .DS_Store
 Thumbs.db
+
+# Astro / Node
+dist/
+.astro/
+node_modules/
+.env
+.vercel/
+
+# Sanity build
+sanity/dist/

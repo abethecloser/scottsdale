@@ -1,0 +1,88 @@
+---
+// Shared front-end behaviour (word-reveal, scroll reveals, carousels, video
+// lightbox, footer year). Design behaviour — identical to the demo, but every
+// direct element lookup is null-guarded so pages without a hero/lightbox
+// (blog, program detail) don't throw.
+---
+<!-- VIDEO LIGHTBOX -->
+<div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-5">
+  <div class="relative w-full max-w-3xl aspect-video rounded-4xl overflow-hidden bg-ink ring-1 ring-white/15">
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white/80 px-8">
+      <svg class="w-12 h-12 text-gold mb-4" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <p class="text-[15px]">Your workshop video drops in here. Send us an MP4 and we'll wire it up.</p>
+    </div>
+    <button id="lb-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 text-white flex items-center justify-center hover:bg-white/25" aria-label="Close"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+</div>
+
+<script is:inline>
+(function(){
+  var reduce = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || /(?:^|[?&])preview\b/.test(location.search);
+  var yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
+
+  // headline / description word reveal (homepage only)
+  var desc=document.getElementById('desc');
+  var descSpans=[];
+  if(desc){
+    var dWords=desc.textContent.trim().split(/\s+/); desc.textContent='';
+    descSpans=dWords.map(function(w,i){var s=document.createElement('span');s.className='word';s.textContent=w;desc.appendChild(s);if(i<dWords.length-1)desc.appendChild(document.createTextNode(' '));return s;});
+  }
+  var hWords=[].slice.call(document.querySelectorAll('#headline .word'));
+  var labelWords=[].slice.call(document.querySelectorAll('#loc .word'));
+  var cta=document.getElementById('cta-wrap');
+
+  if(reduce){
+    document.querySelectorAll('.word').forEach(function(w){w.classList.add('in');});
+    if(cta) cta.classList.add('in');
+    document.querySelectorAll('.reveal').forEach(function(s){s.classList.add('in');});
+  } else {
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      var t=200;
+      labelWords.forEach(function(w){setTimeout(function(){w.classList.add('in');},t);t+=90;}); t+=140;
+      hWords.forEach(function(w){setTimeout(function(){w.classList.add('in');},t);t+=120;}); t+=160;
+      descSpans.forEach(function(w){setTimeout(function(){w.classList.add('in');},t);t+=40;});
+      if(cta) setTimeout(function(){cta.classList.add('in');},t+180);
+    });});
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  }
+
+  // carousels
+  document.querySelectorAll('[data-carousel]').forEach(function(root){
+    var track=root.querySelector('[data-track]');
+    if(!track) return;
+    var prev=root.querySelector('[data-prev]');
+    var next=root.querySelector('[data-next]');
+    function step(){ var c=track.firstElementChild; return c? c.getBoundingClientRect().width+16 : track.clientWidth*0.8; }
+    if(next) next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+    if(prev) prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+
+    // dots + autoplay (testimonials)
+    var dotsWrap=root.querySelector('[data-dots]');
+    var cards=[].slice.call(track.children);
+    if(dotsWrap){
+      cards.forEach(function(_,i){var d=document.createElement('button');d.className='car-dot'+(i===0?' on':'');d.addEventListener('click',function(){track.scrollTo({left:i*step(),behavior:'smooth'});});dotsWrap.appendChild(d);});
+      var dots=[].slice.call(dotsWrap.children);
+      track.addEventListener('scroll',function(){var idx=Math.round(track.scrollLeft/step());dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});},{passive:true});
+    }
+    if(root.hasAttribute('data-auto') && !reduce){
+      var timer=setInterval(function(){
+        var max=track.scrollWidth-track.clientWidth-4;
+        if(track.scrollLeft>=max){track.scrollTo({left:0,behavior:'smooth'});}
+        else{track.scrollBy({left:step(),behavior:'smooth'});}
+      },5000);
+      root.addEventListener('mouseenter',function(){clearInterval(timer);});
+    }
+  });
+
+  // video lightbox
+  var lb=document.getElementById('lightbox');
+  if(lb){
+    document.querySelectorAll('[data-video]').forEach(function(b){b.addEventListener('click',function(){lb.classList.remove('hidden');lb.classList.add('flex');});});
+    function closeLb(){lb.classList.add('hidden');lb.classList.remove('flex');}
+    var lbClose=document.getElementById('lb-close');
+    if(lbClose) lbClose.addEventListener('click',closeLb);
+    lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  }
+})();
+</script>

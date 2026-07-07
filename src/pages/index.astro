@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import SkillsMarquee from '../components/SkillsMarquee.astro';
+import BentoStats from '../components/BentoStats.astro';
+import ProgramsCarousel from '../components/ProgramsCarousel.astro';
+import GalleryMarquee from '../components/GalleryMarquee.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Coaches from '../components/Coaches.astro';
+import CaseStudies from '../components/CaseStudies.astro';
+import BlogTeaser from '../components/BlogTeaser.astro';
+import LeadForm from '../components/LeadForm.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Scottsdale Sales Training',
+  description: 'Sales training, coaching and team workshops in Scottsdale, Arizona.',
+  areaServed: 'Scottsdale, AZ',
+  telephone: '+1-480-555-1234',
+  email: 'hello@scottsdalesalestraining.com',
+  address: { '@type': 'PostalAddress', addressLocality: 'Scottsdale', addressRegion: 'AZ', addressCountry: 'US' },
+  openingHours: 'Mo-Fr 08:00-17:00',
+  founder: { '@type': 'Person', name: 'Brad', jobTitle: 'Founder & Head Coach' },
+});
+---
+<Base
+  title="Scottsdale Sales Training | Sales Coaching & Workshops, Scottsdale AZ"
+  description="Practical sales training and coaching in Scottsdale, AZ. Shorten your sales cycle, lift win rates, and build a team that loves to close. Call (480) 555-1234."
+  jsonLd={[jsonLd]}
+>
+  <Header />
+  <Hero />
+  <SkillsMarquee />
+  <BentoStats />
+  <ProgramsCarousel />
+  <GalleryMarquee />
+  <Testimonials />
+  <Coaches />
+  <CaseStudies />
+  <BlogTeaser />
+  <LeadForm />
+  <CtaBand />
+  <Footer />
+</Base>

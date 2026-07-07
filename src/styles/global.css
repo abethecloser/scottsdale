@@ -1,0 +1,40 @@
+html{scroll-behavior:smooth}
+body{font-family:"Inter",-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.accent{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;color:#C9A24A}
+.display{font-weight:300;line-height:1.02;letter-spacing:-.02em}
+.h-display{font-weight:300;letter-spacing:-.02em;line-height:1.04}
+.hero-h{font-size:clamp(2.5rem,8.5vw,4.75rem);text-shadow:0 2px 12px rgba(0,0,0,.35)}
+/* word reveal */
+.word{display:inline-block;opacity:0;transform:translateY(15px);filter:blur(4px);
+  transition:opacity .7s cubic-bezier(.16,.84,.3,1),transform .7s cubic-bezier(.16,.84,.3,1),filter .7s cubic-bezier(.16,.84,.3,1);will-change:transform,opacity,filter}
+.word.in{opacity:1;transform:none;filter:blur(0)}
+#cta-wrap{opacity:0;transform:translateY(16px);filter:blur(4px);transition:all .8s cubic-bezier(.16,.84,.3,1)}
+#cta-wrap.in{opacity:1;transform:none;filter:blur(0)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,.84,.3,1),transform .8s cubic-bezier(.16,.84,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.kenburns{animation:kb 20s ease-out forwards}
+@keyframes kb{from{transform:scale(1.14)}to{transform:scale(1)}}
+.zoomimg{transition:transform .9s cubic-bezier(.16,.84,.3,1)}
+.group:hover .zoomimg, .car-card:hover .zoomimg{transform:scale(1.06)}
+.pill-shadow{box-shadow:0 10px 30px -8px rgba(0,0,0,.45)}
+.pill-shadow-w{box-shadow:0 16px 44px -12px rgba(0,0,0,.5)}
+.ring-gold{box-shadow:inset 0 0 0 1px rgba(201,162,74,.4)}
+/* text + image marquee */
+.mq-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq.rev{animation-direction:reverse;animation-duration:46s}
+.mq:hover{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.txtmq{animation-duration:30s}
+/* carousel */
+.car{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;padding-bottom:4px}
+.car::-webkit-scrollbar{display:none}
+.car-card{scroll-snap-align:start;flex:0 0 86%}
+@media(min-width:768px){.car-card{flex:0 0 calc(33.333% - 11px)}}
+.car-dot{width:7px;height:7px;border-radius:99px;background:rgba(22,23,15,.22);transition:.3s}
+.car-dot.on{background:#C9A24A;width:22px}
+@media (prefers-reduced-motion: reduce){
+  .word,#cta-wrap,.reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+  .kenburns,.mq{animation:none}
+}
