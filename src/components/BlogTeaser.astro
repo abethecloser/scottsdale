@@ -1,10 +1,16 @@
 ---
+import type { BlogPost } from '../lib/defaults';
+interface Props { posts: BlogPost[] }
+const { posts } = Astro.props;
 ---
 <section id="insights" class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-paper2 px-6 sm:px-12 py-14 sm:py-20">
   <div class="flex items-end justify-between gap-6 mb-10"><div class="max-w-xl"><span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-emerald-light">Insights</span><h2 class="h-display text-3xl sm:text-5xl mt-3">From the playbook</h2></div><a href="/blog" class="hidden sm:inline-flex items-center gap-1.5 text-[14px] font-medium text-emerald-light hover:text-emerald">All articles <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   <div class="grid md:grid-cols-3 gap-4 sm:gap-5">
-    <a href="/blog" class="group rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8"><div class="h-44 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt=""></div><div class="p-6"><div class="text-[12px] text-emerald-light">Objection handling</div><h3 class="text-lg font-medium mt-1">The 4 objections that actually kill deals</h3></div></a>
-    <a href="/blog" class="group rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8"><div class="h-44 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt=""></div><div class="p-6"><div class="text-[12px] text-emerald-light">Discovery</div><h3 class="text-lg font-medium mt-1">Questions that make buyers sell themselves</h3></div></a>
-    <a href="/blog" class="group rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8"><div class="h-44 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt=""></div><div class="p-6"><div class="text-[12px] text-emerald-light">Ramp</div><h3 class="text-lg font-medium mt-1">A 30-60-90 that gets reps to quota faster</h3></div></a>
+    {posts.map((post) => (
+      <a href={`/blog/${post.slug}`} class="group rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
+        <div class="h-44 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src={post.coverImageUrl} alt={post.coverImageAlt}></div>
+        <div class="p-6"><div class="text-[12px] text-emerald-light">{post.category}</div><h3 class="text-lg font-medium mt-1">{post.title}</h3></div>
+      </a>
+    ))}
   </div>
 </section>

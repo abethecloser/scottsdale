@@ -1,19 +1,16 @@
 ---
+import type { CaseStudy } from '../lib/defaults';
+interface Props { caseStudies: CaseStudy[] }
+const { caseStudies } = Astro.props;
 ---
 <section id="cases" class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-paper px-6 sm:px-12 py-14 sm:py-20">
   <div class="max-w-2xl mb-10"><span class="text-[12px] font-semibold tracking-[0.2em] uppercase text-emerald-light">Case studies</span><h2 class="h-display text-3xl sm:text-5xl mt-3">Engagements that moved <span class="accent">the number</span></h2></div>
   <div class="grid lg:grid-cols-3 gap-4 sm:gap-5">
-    <article class="rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
-      <div class="h-44 overflow-hidden"><img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt=""></div>
-      <div class="p-6"><div class="text-[12px] uppercase tracking-[0.16em] text-emerald-light">SaaS · 12 reps</div><div class="text-3xl font-light text-emerald-light mt-2">+30% close rate</div><p class="mt-3 text-[14px] text-inkt/60">A quarter of role-play driven workshops rebuilt their objection handling and discovery.</p></div>
-    </article>
-    <article class="rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
-      <div class="h-44 overflow-hidden"><img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt=""></div>
-      <div class="p-6"><div class="text-[12px] uppercase tracking-[0.16em] text-emerald-light">Distribution · new hires</div><div class="text-3xl font-light text-emerald-light mt-2">8-week ramp</div><p class="mt-3 text-[14px] text-inkt/60">A structured ramp program cut time-to-quota from six months to eight weeks.</p></div>
-    </article>
-    <article class="rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
-      <div class="h-44 overflow-hidden"><img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt=""></div>
-      <div class="p-6"><div class="text-[12px] uppercase tracking-[0.16em] text-emerald-light">Fintech · RevOps</div><div class="text-3xl font-light text-emerald-light mt-2">Bigger deals</div><p class="mt-3 text-[14px] text-inkt/60">A new discovery framework lifted average deal size and shortened the cycle.</p></div>
-    </article>
+    {caseStudies.map((c) => (
+      <article class="rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
+        <div class="h-44 overflow-hidden"><img class="w-full h-full object-cover" src={c.imageUrl} alt={c.imageAlt}></div>
+        <div class="p-6"><div class="text-[12px] uppercase tracking-[0.16em] text-emerald-light">{c.category}</div><div class="text-3xl font-light text-emerald-light mt-2">{c.headlineStat}</div><p class="mt-3 text-[14px] text-inkt/60">{c.description}</p></div>
+      </article>
+    ))}
   </div>
 </section>

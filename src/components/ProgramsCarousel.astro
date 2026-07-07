@@ -1,4 +1,7 @@
 ---
+import type { Program } from '../lib/defaults';
+interface Props { programs: Program[] }
+const { programs } = Astro.props;
 ---
 <section id="programs" class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-paper px-6 sm:px-12 py-14 sm:py-20" data-carousel>
   <div class="flex items-end justify-between gap-6 mb-8 sm:mb-12">
@@ -12,25 +15,14 @@
     </div>
   </div>
   <div class="car" data-track>
-    <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
-      <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Team workshops"><span class="absolute top-4 left-4 text-[11px] uppercase tracking-wider bg-white/90 text-inkt rounded-full px-3 py-1">Most booked</span></div>
-      <div class="p-6"><h3 class="text-xl font-medium">Sales Team Workshops</h3><p class="mt-2 text-[14px] text-inkt/55">Role-play driven sessions, on-site or virtual.</p></div>
-    </a>
-    <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
-      <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" alt="1-on-1 coaching"></div>
-      <div class="p-6"><h3 class="text-xl font-medium">1-on-1 Coaching</h3><p class="mt-2 text-[14px] text-inkt/55">Private weekly coaching for reps and leaders.</p></div>
-    </a>
-    <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
-      <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Leadership"></div>
-      <div class="p-6"><h3 class="text-xl font-medium">Sales Leadership</h3><p class="mt-2 text-[14px] text-inkt/55">Coach deals, forecast, build a winning culture.</p></div>
-    </a>
-    <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
-      <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80" alt="Keynotes"></div>
-      <div class="p-6"><h3 class="text-xl font-medium">Keynotes &amp; Kickoffs</h3><p class="mt-2 text-[14px] text-inkt/55">High-energy talks for kickoffs and conferences.</p></div>
-    </a>
-    <a href="#contact" class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
-      <div class="relative h-52 overflow-hidden"><img class="zoomimg w-full h-full object-cover" src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt="Virtual"></div>
-      <div class="p-6"><h3 class="text-xl font-medium">New-Hire Ramp</h3><p class="mt-2 text-[14px] text-inkt/55">Get new reps to quota in weeks, not months.</p></div>
-    </a>
+    {programs.map((p) => (
+      <a href={`/programs/${p.slug}`} class="car-card group block rounded-4xl overflow-hidden bg-white ring-1 ring-inkt/8">
+        <div class="relative h-52 overflow-hidden">
+          <img class="zoomimg w-full h-full object-cover" src={p.imageUrl} alt={p.imageAlt}>
+          {p.badge && <span class="absolute top-4 left-4 text-[11px] uppercase tracking-wider bg-white/90 text-inkt rounded-full px-3 py-1">{p.badge}</span>}
+        </div>
+        <div class="p-6"><h3 class="text-xl font-medium">{p.title}</h3><p class="mt-2 text-[14px] text-inkt/55">{p.shortDescription}</p></div>
+      </a>
+    ))}
   </div>
 </section>

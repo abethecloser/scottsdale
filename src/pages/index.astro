@@ -13,19 +13,18 @@ import BlogTeaser from '../components/BlogTeaser.astro';
 import LeadForm from '../components/LeadForm.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Footer from '../components/Footer.astro';
+import {
+  getSiteSettings, getPrograms, getTestimonials, getTeam,
+  getCaseStudies, getGallery, getLatestPosts,
+} from '../lib/queries';
+import { localBusinessJsonLd } from '../lib/seo';
 
-const jsonLd = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Scottsdale Sales Training',
-  description: 'Sales training, coaching and team workshops in Scottsdale, Arizona.',
-  areaServed: 'Scottsdale, AZ',
-  telephone: '+1-480-555-1234',
-  email: 'hello@scottsdalesalestraining.com',
-  address: { '@type': 'PostalAddress', addressLocality: 'Scottsdale', addressRegion: 'AZ', addressCountry: 'US' },
-  openingHours: 'Mo-Fr 08:00-17:00',
-  founder: { '@type': 'Person', name: 'Brad', jobTitle: 'Founder & Head Coach' },
-});
+const [settings, programs, testimonials, team, caseStudies, gallery, posts] = await Promise.all([
+  getSiteSettings(), getPrograms(), getTestimonials(), getTeam(),
+  getCaseStudies(), getGallery(), getLatestPosts(3),
+]);
+
+const jsonLd = localBusinessJsonLd(settings, Astro.site?.href ?? Astro.url.origin);
 ---
 <Base
   title="Scottsdale Sales Training | Sales Coaching & Workshops, Scottsdale AZ"
@@ -33,16 +32,16 @@ const jsonLd = JSON.stringify({
   jsonLd={[jsonLd]}
 >
   <Header />
-  <Hero />
+  <Hero settings={settings} />
   <SkillsMarquee />
-  <BentoStats />
-  <ProgramsCarousel />
-  <GalleryMarquee />
-  <Testimonials />
-  <Coaches />
-  <CaseStudies />
-  <BlogTeaser />
-  <LeadForm />
-  <CtaBand />
-  <Footer />
+  <BentoStats settings={settings} quote={testimonials[0]} />
+  <ProgramsCarousel programs={programs} />
+  <GalleryMarquee gallery={gallery} />
+  <Testimonials testimonials={testimonials} />
+  <Coaches team={team} />
+  <CaseStudies caseStudies={caseStudies} />
+  <BlogTeaser posts={posts} />
+  <LeadForm settings={settings} />
+  <CtaBand settings={settings} />
+  <Footer settings={settings} />
 </Base>

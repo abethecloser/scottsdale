@@ -1,0 +1,70 @@
+---
+import { PortableText } from 'astro-portabletext';
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { getPublishedPosts, getPostBySlug, getSiteSettings } from '../../lib/queries';
+import { blogPostingJsonLd } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const [post, settings] = await Promise.all([getPostBySlug(slug!), getSiteSettings()]);
+if (!post) return Astro.redirect('/404');
+
+const fmt = (d: string) =>
+  d ? new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+const jsonLd = blogPostingJsonLd(post, Astro.url.href);
+---
+<Base
+  title={`${post.seoTitle || post.title} | Scottsdale Sales Training`}
+  description={post.metaDescription || post.excerpt}
+  ogImage={post.coverImageUrl}
+  jsonLd={[jsonLd]}
+>
+  <Header />
+
+  <article class="reveal mt-2">
+    <div class="rounded-4xl sm:rounded-5xl overflow-hidden relative min-h-[46svh] flex">
+      <img class="absolute inset-0 w-full h-full object-cover" src={post.coverImageUrl} alt={post.coverImageAlt}>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/25"></div>
+      <div class="relative z-10 w-full flex flex-col justify-end px-6 sm:px-12 pb-10 sm:pb-14 max-w-3xl">
+        <div class="flex items-center gap-3 text-[12px] text-white/70 mb-3">
+          <span class="text-gold font-semibold tracking-[0.16em] uppercase">{post.category}</span>
+          <span>{fmt(post.publishedAt)}</span>
+        </div>
+        <h1 class="h-display text-3xl sm:text-5xl text-white max-w-[22ch]">{post.title}</h1>
+      </div>
+    </div>
+
+    <div class="rounded-4xl sm:rounded-5xl bg-paper px-6 sm:px-12 py-14 sm:py-20 mt-3 sm:mt-5">
+      <div class="prose-basic max-w-2xl mx-auto">
+        {post.body ? <PortableText value={post.body} /> : <p>{post.excerpt}</p>}
+      </div>
+
+      {post.author && (
+        <div class="max-w-2xl mx-auto mt-12 pt-8 border-t border-inkt/10 flex items-center gap-4">
+          {post.author.imageUrl && <img class="w-12 h-12 rounded-full object-cover" src={post.author.imageUrl} alt={post.author.name}>}
+          <div>
+            <div class="text-[14px] font-medium">{post.author.name}</div>
+            <div class="text-[13px] text-inkt/55">{post.author.role}</div>
+          </div>
+        </div>
+      )}
+
+      <div class="max-w-2xl mx-auto mt-10">
+        <a href="/blog" class="inline-flex items-center gap-2 text-[14px] font-medium text-emerald-light hover:text-emerald">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          All articles
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <div class="mt-3 sm:mt-5"><CtaBand settings={settings} /></div>
+  <Footer settings={settings} />
+</Base>

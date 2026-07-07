@@ -1,0 +1,55 @@
+---
+import { PortableText } from 'astro-portabletext';
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Footer from '../../components/Footer.astro';
+import { getPrograms, getProgramBySlug, getSiteSettings } from '../../lib/queries';
+
+export async function getStaticPaths() {
+  const programs = await getPrograms();
+  return programs.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const [program, settings] = await Promise.all([
+  getProgramBySlug(slug!),
+  getSiteSettings(),
+]);
+
+if (!program) return Astro.redirect('/404');
+---
+<Base
+  title={`${program.title} | Scottsdale Sales Training`}
+  description={program.shortDescription}
+  ogImage={program.imageUrl}
+>
+  <Header />
+
+  <section class="reveal relative rounded-4xl sm:rounded-5xl overflow-hidden min-h-[52svh] flex mt-2">
+    <img class="absolute inset-0 w-full h-full object-cover" src={program.imageUrl} alt={program.imageAlt}>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/30"></div>
+    <div class="relative z-10 w-full flex flex-col justify-end px-6 sm:px-12 pb-10 sm:pb-14">
+      <a href="/#programs" class="text-[12px] font-semibold tracking-[0.2em] uppercase text-gold mb-3">Programs</a>
+      <h1 class="h-display text-4xl sm:text-6xl text-white max-w-[18ch]">{program.title}</h1>
+      <p class="mt-4 text-[15px] sm:text-[17px] text-white/85 max-w-xl">{program.shortDescription}</p>
+    </div>
+  </section>
+
+  <article class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-paper px-6 sm:px-12 py-14 sm:py-20">
+    <div class="prose-basic max-w-2xl mx-auto">
+      {program.body ? <PortableText value={program.body} /> : <p>{program.shortDescription}</p>}
+    </div>
+    <div class="max-w-2xl mx-auto mt-10">
+      <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-ink text-white text-[15px] font-medium px-7 py-4 hover:bg-char transition-colors">
+        Book this program
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </article>
+
+  <LeadForm settings={settings} />
+  <CtaBand settings={settings} />
+  <Footer settings={settings} />
+</Base>

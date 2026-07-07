@@ -1,11 +1,14 @@
 ---
+import type { SiteSettings } from '../lib/defaults';
+interface Props { settings: SiteSettings }
+const { settings } = Astro.props;
 ---
 <section id="cta" class="reveal mt-3 sm:mt-5 rounded-4xl sm:rounded-5xl bg-emerald-deep text-white px-6 sm:px-12 py-16 sm:py-24 text-center relative overflow-hidden">
   <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(600px 320px at 50% 0%,rgba(35,165,121,.22),transparent 60%)"></div>
   <div class="relative">
     <h2 class="h-display text-4xl sm:text-6xl max-w-3xl mx-auto">Ready to close <span class="accent">more deals?</span></h2>
     <p class="mt-5 text-[15px] text-white/75 max-w-xl mx-auto">Book a free 20-minute discovery call. We'll map exactly where your team can win more. No pressure, no obligation.</p>
-    <a href="tel:+14805551234" class="pill-shadow-w mt-9 inline-flex items-center gap-2 rounded-full bg-white text-inkt text-[15px] font-medium px-8 py-4 hover:bg-paper transition-colors">
+    <a href={`tel:${settings.tel}`} class="pill-shadow-w mt-9 inline-flex items-center gap-2 rounded-full bg-white text-inkt text-[15px] font-medium px-8 py-4 hover:bg-paper transition-colors">
       Book a Discovery Call
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>

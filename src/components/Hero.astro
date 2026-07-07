@@ -1,7 +1,10 @@
 ---
+import type { SiteSettings } from '../lib/defaults';
+interface Props { settings: SiteSettings }
+const { settings } = Astro.props;
 ---
 <main class="relative rounded-4xl sm:rounded-5xl overflow-hidden min-h-[82svh] flex">
-  <img class="kenburns absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1700&q=80" alt="Sales training workshop in session">
+  <img class="kenburns absolute inset-0 w-full h-full object-cover" src={settings.heroImageUrl} alt={settings.heroImageAlt}>
   <div class="absolute inset-0 bg-emerald-deep/35 mix-blend-multiply"></div>
   <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/25 to-black/75"></div>
   <div class="relative z-10 w-full flex flex-col justify-end items-center text-center px-6 pb-10 sm:pb-16">
@@ -13,7 +16,7 @@
       <span class="word">On</span> <span class="word accent">Your</span> <span class="word">Terms</span>
     </h1>
     <p id="desc" class="mt-5 sm:mt-6 max-w-[440px] text-[15px] leading-relaxed text-white/90">
-      Practical sales coaching that shortens your cycle and lifts win rates, built around the real deals your team is working right now.
+      {settings.heroSubheadline}
     </p>
     <div id="cta-wrap" class="mt-8 sm:mt-10">
       <a href="#contact" class="pill-shadow-w inline-flex items-center gap-2 rounded-full bg-white text-inkt text-[15px] font-medium px-7 py-4 hover:bg-paper transition-colors">

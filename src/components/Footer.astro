@@ -1,4 +1,7 @@
 ---
+import type { SiteSettings } from '../lib/defaults';
+interface Props { settings: SiteSettings }
+const { settings } = Astro.props;
 ---
 <footer class="px-2 sm:px-6 py-10 sm:py-12">
   <div class="grid gap-8 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
@@ -8,7 +11,7 @@
     </div>
     <div><div class="text-[12px] font-semibold tracking-[0.16em] uppercase text-inkt/40 mb-4">Programs</div><ul class="space-y-2.5 text-[14px] text-inkt/65"><li><a href="#programs" class="hover:text-emerald-light">Team Workshops</a></li><li><a href="#programs" class="hover:text-emerald-light">1-on-1 Coaching</a></li><li><a href="#programs" class="hover:text-emerald-light">Leadership</a></li><li><a href="#programs" class="hover:text-emerald-light">Keynotes</a></li></ul></div>
     <div><div class="text-[12px] font-semibold tracking-[0.16em] uppercase text-inkt/40 mb-4">Company</div><ul class="space-y-2.5 text-[14px] text-inkt/65"><li><a href="#coaches" class="hover:text-emerald-light">Coaches</a></li><li><a href="#results" class="hover:text-emerald-light">Results</a></li><li><a href="#gallery" class="hover:text-emerald-light">Inside the room</a></li><li><a href="/blog" class="hover:text-emerald-light">Insights</a></li></ul></div>
-    <div><div class="text-[12px] font-semibold tracking-[0.16em] uppercase text-inkt/40 mb-4">Get in touch</div><ul class="space-y-2.5 text-[14px] text-inkt/65"><li><a href="tel:+14805551234" class="hover:text-emerald-light">(480) 555-1234</a></li><li><a href="mailto:hello@scottsdalesalestraining.com" class="hover:text-emerald-light">hello@scottsdalesalestraining.com</a></li><li>Scottsdale, Arizona</li><li>Mon-Fri 8-5 MST</li></ul></div>
+    <div><div class="text-[12px] font-semibold tracking-[0.16em] uppercase text-inkt/40 mb-4">Get in touch</div><ul class="space-y-2.5 text-[14px] text-inkt/65"><li><a href={`tel:${settings.tel}`} class="hover:text-emerald-light">{settings.phone}</a></li><li><a href={`mailto:${settings.email}`} class="hover:text-emerald-light">{settings.email}</a></li><li>{settings.address}</li><li>{settings.hours}</li></ul></div>
   </div>
   <div class="mt-10 pt-6 border-t border-inkt/10 flex flex-wrap gap-3 justify-between text-[12px] text-inkt/40">
     <span>© <span id="yr">2026</span> Scottsdale Sales Training. All rights reserved.</span><span>Privacy · Terms</span>
